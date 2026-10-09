@@ -3,9 +3,9 @@ id: T005
 title: Implement IndexedDB persistence with versioned saves and migration
 wave: 1
 deps: ["T002", "T004"]
-status: pending
-agent: null
-base: null
+status: done
+agent: build_T005
+base: dddd037967eaf015ba12fa466ba4d459f61ce4f5
 worktree: null
 task_branch: null
 files:
@@ -69,3 +69,4 @@ Heavy: no
 
 - 2026-10-09 — created by planner
 - 2026-10-09 — plan defect repair (pre-dispatch): files coverage — added `src/core/persistence/persistence.ts` (the save/load module itself was undeclared; T005 now owns it end-to-end together with its Zod schema + migration).
+- 2026-10-09 — orchestrator Verify (sidecar gsd-path-verify/task-t005-verify): pass, exit 0
