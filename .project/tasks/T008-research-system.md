@@ -3,9 +3,9 @@ id: T008
 title: Implement research system with tech tree and bonuses
 wave: 2
 deps: ["T005", "T007"]
-status: pending
-agent: null
-base: null
+status: done
+agent: build_T008
+base: 405b26e7a08b5b15a71eb4dc43ae7cfb54775b4a
 worktree: null
 task_branch: null
 files:
@@ -82,3 +82,4 @@ Heavy: no
 
 - 2026-10-09 — created by planner
 - 2026-10-09 — plan defect repair (pre-dispatch): files coverage — added `src/core/systems/research.test.ts` (task's unit tests were undeclared).
+- 2026-10-09 — orchestrator Verify (sidecar gsd-path-verify/task-t008-verify): pass, exit 0
