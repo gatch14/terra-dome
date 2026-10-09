@@ -3,9 +3,9 @@ id: T012
 title: Implement Clan Event tab UI with timer, leaderboard, point log
 wave: 4
 deps: ["T009"]
-status: pending
-agent: null
-base: null
+status: done
+agent: task-t012
+base: e0ee2f88e727977d61bb758c1c914ebd7dd6a699
 worktree: null
 task_branch: null
 files:
@@ -75,3 +75,4 @@ Heavy: no
 
 - 2026-10-09 — created by planner
 - 2026-10-09 — plan build-repair (recovery base b22482d): wave corrected 3 → 4. PLAN.md Wave 4 ("Clan Event & Shop") is this task's approved home; recording it as wave 3 left wave 4 without task files and `build_state ready` rejected the inventory. No other contract field changed.
+- 2026-10-09 — orchestrator Verify (sidecar gsd-path-verify/task-t012-verify): pass, exit 0
