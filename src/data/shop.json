@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1h_build",
+    "name": "1h Build Speedup",
+    "description": "Reduces building timer by 1 hour",
+    "price": 100,
+    "effect": { "type": "buildSpeedup", "value": 3600 }
+  },
+  {
+    "id": "8h_build",
+    "name": "8h Build Speedup",
+    "description": "Reduces building timer by 8 hours",
+    "price": 500,
+    "effect": { "type": "buildSpeedup", "value": 28800 }
+  },
+  {
+    "id": "1h_research",
+    "name": "1h Research Boost",
+    "description": "Reduces research timer by 1 hour",
+    "price": 150,
+    "effect": { "type": "researchSpeedup", "value": 3600 }
+  },
+  {
+    "id": "resource_pack",
+    "name": "Resource Pack",
+    "description": "Instantly grants 500 Materials, 300 Energy, 100 Research Data",
+    "price": 200,
+    "effect": { "type": "resourcePack", "value": 1 }
+  }
+]

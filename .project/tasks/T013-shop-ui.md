@@ -3,9 +3,9 @@ id: T013
 title: Implement Shop tab UI with currency, items, inventory
 wave: 4
 deps: ["T005", "T006"]
-status: pending
-agent: null
-base: null
+status: done
+agent: task-t013
+base: 825fe4495aa586009cca0c8bfd05e75838184daf
 worktree: null
 task_branch: null
 files:
@@ -85,3 +85,4 @@ Heavy: no
 - 2026-10-09 — created by planner
 - 2026-10-09 — plan defect repair (pre-dispatch): files coverage — added `src/core/systems/shopDefinitions.ts` (SHOP_DEFINITIONS data loader used by shop.ts was undeclared).
 - 2026-10-09 — plan build-repair (recovery base b22482d): wave corrected 3 → 4. PLAN.md Wave 4 ("Clan Event & Shop") is this task's approved home; recording it as wave 3 left wave 4 without task files and `build_state ready` rejected the inventory. No other contract field changed.
+- 2026-10-09 — orchestrator Verify (sidecar gsd-path-verify/task-t013-verify): pass, exit 0
