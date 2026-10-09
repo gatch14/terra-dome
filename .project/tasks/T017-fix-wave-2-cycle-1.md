@@ -3,9 +3,9 @@ id: T017
 title: Fix wave 2 cycle 1 review findings in T006
 wave: 7
 deps: [T006]
-status: pending
-agent: null
-base: null
+status: done
+agent: task-t017
+base: 2ad06e017c0c6a8e718de39bca11256f11ff1514
 worktree: null
 task_branch: null
 files:
@@ -59,3 +59,25 @@ Criterion: Unit tests for: queue, complete, cancel, cost scaling, time scaling, 
 
 - 2026-10-09 - created by dispatch_driver.py fix-tasks from wave 2 cycle 1
 - 2026-10-09 - plan defect repair (wave 2 gate): files narrowed to the finding's single named file (buildings.test.ts) and Verify strengthened to the AC's unit-test run; buildingDefinitions.ts write scope granted to T018 per the t008_ac6 finding note.
+- 2026-10-09 — orchestrator Verify (sidecar gsd-path-verify/task-t017-verify): pass, exit 0; output tail:
+  ```
+  + zod 3.25.76
+  
+  devDependencies:
+  + @types/node 22.20.5
+  + jsdom 25.0.1
+  + typescript 5.9.3
+  + vite 5.4.21
+  + vitest 2.1.9
+  
+  Done in 826ms using pnpm v11.4.0
+  
+  [1m[7m[36m RUN [39m[27m[22m [36mv2.1.9 [39m[90mC:/Users/gatch/.gsd-path/projects/6766097597d76e29/1d504e52cfc1b1c5/verify/task-t017-verify[39m
+  
+   [32m✓[39m src/core/systems/buildings.test.ts [2m([22m[2m9 tests[22m[2m)[22m[90m 5[2mms[22m[39m
+  
+  [2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+  [2m      Tests [22m [1m[32m9 passed[39m[22m[90m (9)[39m
+  [2m   Start at [22m 19:55:55
+  [2m   Duration [22m 883ms[2m (transform 80ms, setup 0ms, collect 125ms, tests 5ms, environment 427ms, prepare 118ms)[22m
+  ```
