@@ -2,10 +2,10 @@
 pipeline: gsd-path/v2
 project: terra-dome
 milestone: null     # set by define; names the archive directory at ship
-phase: plan
+phase: build
                     # inspect only for brownfield; greenfield starts at define
                     # roadmap only in program flow (CHARTER.md exists)
-status: done
+status: active
 branch: gsd-path/M001
                     # the router rebinds before any next-milestone file change
                     # the bound branch is never main; ship integrates it there
@@ -38,3 +38,4 @@ it on completion. If this file and the artifacts disagree, the artifacts win
 - 2026-10-09 — plan — build plan repair requested
 - 2026-10-09 — plan — build recovery: {"base": "b22482d43abaee5d37743cb5a045fa26559ed850", "branch": "gsd-path/M001", "kind": "plan"}
 - 2026-10-09 — plan — plan approved
+- 2026-10-09 — build — build started
