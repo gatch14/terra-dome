@@ -3,9 +3,9 @@ id: T022
 title: Fix wave 4 cycle 1 review findings in T012
 wave: 9
 deps: [T012]
-status: pending
-agent: null
-base: null
+status: done
+agent: task-t022
+base: 0579d9612423c3f93208bcccb6d7ead839b27599
 worktree: null
 task_branch: null
 files:
@@ -67,3 +67,4 @@ Criterion: EventTimer displays days:hours:minutes:seconds
 ## Log
 
 - 2026-10-09 — created by dispatch_driver.py fix-tasks from wave 4 cycle 1
+- 2026-10-09 — orchestrator Verify (sidecar gsd-path-verify/task-t022-verify): pass, exit 0
