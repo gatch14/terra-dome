@@ -1,7 +1,7 @@
 ---
 id: T012
 title: Implement Clan Event tab UI with timer, leaderboard, point log
-wave: 3
+wave: 4
 deps: ["T009"]
 status: pending
 agent: null
@@ -74,3 +74,4 @@ Heavy: no
 ## Log
 
 - 2026-10-09 — created by planner
+- 2026-10-09 — plan build-repair (recovery base b22482d): wave corrected 3 → 4. PLAN.md Wave 4 ("Clan Event & Shop") is this task's approved home; recording it as wave 3 left wave 4 without task files and `build_state ready` rejected the inventory. No other contract field changed.
