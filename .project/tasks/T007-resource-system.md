@@ -64,8 +64,8 @@ Create the resource system: 3 resources (Materials, Energy, Research Data) with 
 3. spend() returns false if insufficient, true and deducts if sufficient
 4. earn() adds resources, clamps at storage
 5. Production rates update when buildings level up or research completes
-6. Storage caps increase when storage buildings upgrade
-7. Unit tests for: tick, spend, earn, rate calculation, storage limits
+5. Storage caps increase when storage buildings upgrade
+6. Unit tests for: tick, spend, earn, rate calculation, storage limits
 
 ## Verify
 
@@ -79,5 +79,4 @@ Heavy: no
 
 - 2026-10-09 — created by planner
 - 2026-10-09 — plan defect repair (pre-dispatch): files coverage — added `src/core/systems/resources.test.ts` (task's unit tests were undeclared).
-- 2026-10-09 - orchestrator Verify (sidecar gsd-path-verify/task-t007-verify): pass, exit 0
-- 2026-10-09 - plan defect repair (wave 2 gate): duplicated AC numbering (two `5.`) renumbered contiguously 1-7; criterion text unchanged.
+- 2026-10-09 — orchestrator Verify (sidecar gsd-path-verify/task-t007-verify): pass, exit 0

@@ -66,9 +66,9 @@ Create the building system: data-driven building definitions (JSON), build queue
 3. TimerManager processes build queue, completes building on timer expiry
 4. Complete building increases level, updates production rates
 5. Cancel building refunds 100% resources, removes from queue
-6. Building grid enforces slot limits (1 CC, 4 resource, 1 lab)
-7. Cannot queue if cannot afford or no free slot
-8. Unit tests for: queue, complete, cancel, cost scaling, time scaling, slot limits
+5. Building grid enforces slot limits (1 CC, 4 resource, 1 lab)
+6. Cannot queue if cannot afford or no free slot
+7. Unit tests for: queue, complete, cancel, cost scaling, time scaling, slot limits
 
 ## Verify
 
@@ -82,5 +82,4 @@ Heavy: no
 
 - 2026-10-09 — created by planner
 - 2026-10-09 — plan defect repair (pre-dispatch): files coverage — added `src/core/systems/buildings.test.ts` (task's unit tests were undeclared).
-- 2026-10-09 - orchestrator Verify (sidecar gsd-path-verify/task-t006-verify): pass, exit 0
-- 2026-10-09 - plan defect repair (wave 2 gate): duplicated AC numbering (two `5.`) renumbered contiguously 1-8; criterion text unchanged.
+- 2026-10-09 — orchestrator Verify (sidecar gsd-path-verify/task-t006-verify): pass, exit 0
