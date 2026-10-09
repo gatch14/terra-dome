@@ -65,10 +65,10 @@ Create the research system: data-driven tech tree (JSON), research queue, prereq
 1. research.json defines 6-8 nodes across 3 categories with prereqs, costs, effects
 2. startResearch validates prereqs, affordability, adds to queue with endTime
 3. TimerManager completes research, applies bonus to derived rates
-3. Completed research unlocks dependent nodes (available state)
-4. Cancel research refunds 100% resources
-5. Bonuses correctly modify resourceRates, buildSpeed, researchSpeed, clanPointsMultiplier
-6. Unit tests for: prereq validation, queue, complete, cancel, bonus application, unlock chain
+4. Completed research unlocks dependent nodes (available state)
+5. Cancel research refunds 100% resources
+6. Bonuses correctly modify resourceRates, buildSpeed, researchSpeed, clanPointsMultiplier
+7. Unit tests for: prereq validation, queue, complete, cancel, bonus application, unlock chain
 
 ## Verify
 
@@ -82,4 +82,5 @@ Heavy: no
 
 - 2026-10-09 — created by planner
 - 2026-10-09 — plan defect repair (pre-dispatch): files coverage — added `src/core/systems/research.test.ts` (task's unit tests were undeclared).
-- 2026-10-09 — orchestrator Verify (sidecar gsd-path-verify/task-t008-verify): pass, exit 0
+- 2026-10-09 - orchestrator Verify (sidecar gsd-path-verify/task-t008-verify): pass, exit 0
+- 2026-10-09 - plan defect repair (wave 2 gate): duplicated AC numbering (two `3.`) renumbered contiguously 1-7; criterion text unchanged.
