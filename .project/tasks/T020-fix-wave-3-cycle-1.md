@@ -3,9 +3,9 @@ id: T020
 title: Fix wave 3 cycle 1 review findings in T010
 wave: 8
 deps: [T010]
-status: pending
-agent: null
-base: null
+status: done
+agent: task-t020
+base: 9daad44ad9e023be15be1592619f7ccab707c2d6
 worktree: null
 task_branch: null
 files:
@@ -68,3 +68,4 @@ Criterion: Keyboard: Tab navigates slots, Enter opens modal, Escape closes modal
 ## Log
 
 - 2026-10-09 — created by dispatch_driver.py fix-tasks from wave 3 cycle 1
+- 2026-10-09 — orchestrator Verify (sidecar gsd-path-verify/task-t020-verify): pass, exit 0
