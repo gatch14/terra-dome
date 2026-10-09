@@ -10,9 +10,6 @@ worktree: null
 task_branch: null
 files:
   - src/core/systems/clanEvent.test.ts
-  - src/core/systems/clanEvent.ts
-  - src/core/systems/clanEventDefinitions.ts
-  - src/data/clanEvent.json
 ---
 
 # T019 — Fix wave 2 cycle 1 review findings in T009
@@ -46,7 +43,7 @@ The source task contracts are unchanged; read them and .project/intent/INTENT.md
 ```bash
 set -e
 (
-test -f src/core/systems/clanEvent.ts && test -f src/core/systems/clanEventDefinitions.ts && test -f src/data/clanEvent.json
+pnpm vitest run src/core/systems/clanEvent.test.ts
 )
 ```
 
@@ -60,4 +57,5 @@ Criterion: Unit tests for: event start, point sources, AI profiles, event end, r
 
 ## Log
 
-- 2026-10-09 — created by dispatch_driver.py fix-tasks from wave 2 cycle 1
+- 2026-10-09 - created by dispatch_driver.py fix-tasks from wave 2 cycle 1
+- 2026-10-09 - plan defect repair (wave 2 gate): files narrowed to the finding's single named file (clanEvent.test.ts) and Verify strengthened to the AC's unit-test run; clanEvent.ts write scope granted to T018 per the t008_ac6 finding note.

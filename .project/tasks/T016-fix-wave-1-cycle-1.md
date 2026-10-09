@@ -49,7 +49,7 @@ The source task contracts are unchanged; read them and .project/intent/INTENT.md
 ```bash
 set -e
 (
-test -f src/core/persistence/schema.ts && test -f src/core/persistence/migration.ts
+pnpm tsc --noEmit && test -f src/core/persistence/persistence.ts
 )
 ```
 
@@ -79,4 +79,5 @@ Criterion: Storage event: second tab save triggers reload in first tab
 
 ## Log
 
-- 2026-10-09 — created by dispatch_driver.py fix-tasks from wave 1 cycle 1
+- 2026-10-09 - created by dispatch_driver.py fix-tasks from wave 1 cycle 1
+- 2026-10-09 - plan defect repair (wave 1 gate): Verify strengthened from file-existence to `pnpm tsc --noEmit` plus persistence.ts presence (AC/SC6 claims are behavioral).

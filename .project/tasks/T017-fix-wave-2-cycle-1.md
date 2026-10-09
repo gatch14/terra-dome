@@ -9,10 +9,7 @@ base: null
 worktree: null
 task_branch: null
 files:
-  - src/core/systems/buildingDefinitions.ts
   - src/core/systems/buildings.test.ts
-  - src/core/systems/buildings.ts
-  - src/data/buildings.json
 ---
 
 # T017 — Fix wave 2 cycle 1 review findings in T006
@@ -46,7 +43,7 @@ The source task contracts are unchanged; read them and .project/intent/INTENT.md
 ```bash
 set -e
 (
-test -f src/core/systems/buildings.ts && test -f src/core/systems/buildingDefinitions.ts && test -f src/data/buildings.json
+pnpm vitest run src/core/systems/buildings.test.ts
 )
 ```
 
@@ -60,4 +57,5 @@ Criterion: Unit tests for: queue, complete, cancel, cost scaling, time scaling, 
 
 ## Log
 
-- 2026-10-09 — created by dispatch_driver.py fix-tasks from wave 2 cycle 1
+- 2026-10-09 - created by dispatch_driver.py fix-tasks from wave 2 cycle 1
+- 2026-10-09 - plan defect repair (wave 2 gate): files narrowed to the finding's single named file (buildings.test.ts) and Verify strengthened to the AC's unit-test run; buildingDefinitions.ts write scope granted to T018 per the t008_ac6 finding note.

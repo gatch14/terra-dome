@@ -13,6 +13,9 @@ files:
   - src/core/systems/research.ts
   - src/core/systems/researchDefinitions.ts
   - src/data/research.json
+  - src/core/state/derived.ts
+  - src/core/systems/buildingDefinitions.ts
+  - src/core/systems/clanEvent.ts
 ---
 
 # T018 — Fix wave 2 cycle 1 review findings in T008
@@ -46,7 +49,8 @@ The source task contracts are unchanged; read them and .project/intent/INTENT.md
 ```bash
 set -e
 (
-test -f src/core/systems/research.ts && test -f src/core/systems/researchDefinitions.ts && test -f src/data/research.json
+pnpm tsc --noEmit
+pnpm vitest run src/core/systems/research.test.ts
 )
 ```
 
@@ -60,4 +64,5 @@ Criterion: Bonuses correctly modify resourceRates, buildSpeed, researchSpeed, cl
 
 ## Log
 
-- 2026-10-09 — created by dispatch_driver.py fix-tasks from wave 2 cycle 1
+- 2026-10-09 - created by dispatch_driver.py fix-tasks from wave 2 cycle 1
+- 2026-10-09 - plan defect repair (wave 2 gate): write scope granted for src/core/state/derived.ts, src/core/systems/buildingDefinitions.ts, and src/core/systems/clanEvent.ts per the t008_ac6 finding's granted-scope note; Verify strengthened to `pnpm tsc --noEmit` plus the research.test.ts run.
