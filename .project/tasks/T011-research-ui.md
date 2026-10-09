@@ -3,9 +3,9 @@ id: T011
 title: Implement Research tab UI with tech tree and research queue
 wave: 3
 deps: ["T008"]
-status: pending
-agent: null
-base: null
+status: done
+agent: task-t011
+base: bc56b453c2227c0a327441cd110987ffe43a6ab1
 worktree: null
 task_branch: null
 files:
@@ -78,3 +78,4 @@ Heavy: no
 ## Log
 
 - 2026-10-09 — created by planner
+- 2026-10-09 — orchestrator Verify (sidecar gsd-path-verify/task-t011-verify): pass, exit 0
