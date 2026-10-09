@@ -1,0 +1,82 @@
+{
+  "slots": [
+    { "id": "command_center", "type": "command", "label": "Command Center", "buildingType": "command_center" },
+    { "id": "resource_1", "type": "resource", "label": "Resource Slot 1" },
+    { "id": "resource_2", "type": "resource", "label": "Resource Slot 2" },
+    { "id": "resource_3", "type": "resource", "label": "Resource Slot 3" },
+    { "id": "resource_4", "type": "resource", "label": "Resource Slot 4" },
+    { "id": "research_lab", "type": "research", "label": "Research Lab", "buildingType": "research_lab", "requires": { "building": "command_center", "level": 2 } }
+  ],
+  "buildings": [
+    {
+      "id": "command_center",
+      "name": "Command Center",
+      "category": "command",
+      "slotType": "command",
+      "maxLevel": 10,
+      "initialLevel": 1,
+      "baseCost": { "materials": 100, "energy": 50, "researchData": 0 },
+      "costMultiplier": 1.5,
+      "baseBuildTime": 30,
+      "timeMultiplier": 1.2,
+      "production": {},
+      "storageBonus": {}
+    },
+    {
+      "id": "resource_production",
+      "name": "Resource Production",
+      "category": "resource",
+      "slotType": "resource",
+      "maxLevel": 10,
+      "initialLevel": 0,
+      "baseCost": { "materials": 200, "energy": 100, "researchData": 0 },
+      "costMultiplier": 1.4,
+      "baseBuildTime": 60,
+      "timeMultiplier": 1.15,
+      "production": { "materials": 10, "energy": 5, "researchData": 1 },
+      "storageBonus": {}
+    },
+    {
+      "id": "resource_storage",
+      "name": "Resource Storage",
+      "category": "storage",
+      "slotType": "resource",
+      "maxLevel": 10,
+      "initialLevel": 0,
+      "baseCost": { "materials": 150, "energy": 75, "researchData": 0 },
+      "costMultiplier": 1.3,
+      "baseBuildTime": 45,
+      "timeMultiplier": 1.1,
+      "production": {},
+      "storageBonus": { "materials": 500, "energy": 500, "researchData": 250 }
+    },
+    {
+      "id": "energy_reactor",
+      "name": "Energy Reactor",
+      "category": "resource",
+      "slotType": "resource",
+      "maxLevel": 10,
+      "initialLevel": 0,
+      "baseCost": { "materials": 150, "energy": 50, "researchData": 25 },
+      "costMultiplier": 1.4,
+      "baseBuildTime": 50,
+      "timeMultiplier": 1.15,
+      "production": { "energy": 12 },
+      "storageBonus": {}
+    },
+    {
+      "id": "research_lab",
+      "name": "Research Lab",
+      "category": "research",
+      "slotType": "research",
+      "maxLevel": 10,
+      "initialLevel": 0,
+      "baseCost": { "materials": 300, "energy": 200, "researchData": 50 },
+      "costMultiplier": 1.5,
+      "baseBuildTime": 120,
+      "timeMultiplier": 1.25,
+      "production": {},
+      "storageBonus": {}
+    }
+  ]
+}

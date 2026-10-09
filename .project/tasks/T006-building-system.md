@@ -3,9 +3,9 @@ id: T006
 title: Implement building system with queue and data-driven definitions
 wave: 2
 deps: ["T003", "T005"]
-status: pending
-agent: null
-base: null
+status: done
+agent: build_T006
+base: 50cd93e18bf6e56442b0ca0527042996a869c35c
 worktree: null
 task_branch: null
 files:
@@ -82,3 +82,4 @@ Heavy: no
 
 - 2026-10-09 — created by planner
 - 2026-10-09 — plan defect repair (pre-dispatch): files coverage — added `src/core/systems/buildings.test.ts` (task's unit tests were undeclared).
+- 2026-10-09 — orchestrator Verify (sidecar gsd-path-verify/task-t006-verify): pass, exit 0
