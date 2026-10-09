@@ -3,9 +3,9 @@ id: T004
 title: Implement offline progression catch-up with 24h cap
 wave: 1
 deps: ["T003"]
-status: pending
-agent: null
-base: null
+status: done
+agent: build_T004
+base: c5509b9bb926f2d49b9a2dff75d1d1ea3fd29301
 worktree: null
 task_branch: null
 files:
@@ -62,3 +62,4 @@ Heavy: no
 
 - 2026-10-09 — created by planner
 - 2026-10-09 — plan defect repair (pre-dispatch): files coverage — added `src/core/time/offlineCatchup.test.ts` (undeclared tests) and `src/core/time/resumeTimers.ts` (post-catch-up timer resume helper owned by this task; depends on T003 timerManager).
+- 2026-10-09 — orchestrator Verify (sidecar gsd-path-verify/task-t004-verify): pass, exit 0
