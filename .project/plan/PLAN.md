@@ -129,6 +129,16 @@ Walkthrough:
 4. Change system clock forward 1 hour → reload → verify catch-up capped at 24h
 5. Open in second tab → perform action → switch to first tab → verify state syncs via storage event
 
+## Wave 6 — fix wave 1 cycle 1 review findings
+
+Goal: Repair the blocking findings of the wave 1 cycle 1 review without changing source task contracts.
+Review depth: full
+
+| Task | Title | Deps | Files |
+|------|-------|------|-------|
+| T015 | Fix wave 1 cycle 1 review findings in T004 | T004 | src/core/time/offlineCatchup.test.ts, src/core/time/offlineCatchup.ts, src/core/time/resumeTimers.ts |
+| T016 | Fix wave 1 cycle 1 review findings in T005 | T005 | src/core/persistence/migration.ts, src/core/persistence/persistence.ts, src/core/persistence/schema.ts |
+
 ## Intent coverage
 
 | Criterion | Task | Acceptance |
