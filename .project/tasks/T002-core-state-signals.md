@@ -3,9 +3,9 @@ id: T002
 title: Implement core game state signals and derived state
 wave: 1
 deps: ["T001"]
-status: pending
-agent: null
-base: null
+status: done
+agent: build_T002
+base: 6ea4be19593fc54c55c3c1df848a8d62d927158d
 worktree: null
 task_branch: null
 files:
@@ -62,3 +62,26 @@ Heavy: no
 
 - 2026-10-09 — created by planner
 - 2026-10-09 — plan defect repair (pre-dispatch): files coverage — same-wave overlap forbids sharing `gameState.ts`/`types.ts` with T001, so both are owned and landed by T001; this task lands `derived.ts` only and its Verify names that path. Approach text repaired: initial resources "0" contradicted the approved Base-tab walkthrough (first build queueable immediately, cost 200/100); settled starting state is 500 materials / 300 energy / 0 research data.
+- 2026-10-09 — orchestrator Verify (sidecar gsd-path-verify/task-t002-verify): pass, exit 0; output tail:
+  ```
+  Lockfile is up to date, resolution step is skipped
+  Progress: resolved 1, reused 0, downloaded 0, added 0
+  Packages: +110
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Progress: resolved 110, reused 110, downloaded 0, added 110, done
+  
+  dependencies:
+  + @preact/signals 1.3.4
+  + idb-keyval 6.3.0
+  + preact 10.29.8
+  + zod 3.25.76
+  
+  devDependencies:
+  + @types/node 22.20.5
+  + jsdom 25.0.1
+  + typescript 5.9.3
+  + vite 5.4.21
+  + vitest 2.1.9
+  
+  Done in 1.2s using pnpm v11.4.0
+  ```
