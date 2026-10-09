@@ -5,7 +5,7 @@ milestone: null     # set by define; names the archive directory at ship
 phase: build
                     # inspect only for brownfield; greenfield starts at define
                     # roadmap only in program flow (CHARTER.md exists)
-status: active
+status: blocked
 branch: gsd-path/M001
                     # the router rebinds before any next-milestone file change
                     # the bound branch is never main; ship integrates it there
@@ -34,3 +34,4 @@ it on completion. If this file and the artifacts disagree, the artifacts win
 - 2026-10-09 — plan — planning started
 - 2026-10-09 — plan — plan approved
 - 2026-10-09 — build — build started
+- 2026-10-09 — build — build blocked: plan wave inventory defect (wave 4 has no task files)
