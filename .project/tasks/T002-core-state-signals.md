@@ -3,10 +3,10 @@ id: T002
 title: Implement core game state signals and derived state
 wave: 1
 deps: ["T001"]
-status: pending
-agent: null
-base: null
-worktree: null
+status: in-progress
+agent: build_T002
+base: b1edce5eec157881c405e31effc39a5768d8bfad
+worktree: C:\dev\gsd\terra-dome
 task_branch: null
 files:
   - src/core/state/derived.ts
