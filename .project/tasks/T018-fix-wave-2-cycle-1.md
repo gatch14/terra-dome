@@ -3,9 +3,9 @@ id: T018
 title: Fix wave 2 cycle 1 review findings in T008
 wave: 7
 deps: [T008]
-status: pending
-agent: null
-base: null
+status: done
+agent: task-t018
+base: cf7a5a530709580ea58bf830c6671d66705df07f
 worktree: null
 task_branch: null
 files:
@@ -66,3 +66,25 @@ Criterion: Bonuses correctly modify resourceRates, buildSpeed, researchSpeed, cl
 
 - 2026-10-09 - created by dispatch_driver.py fix-tasks from wave 2 cycle 1
 - 2026-10-09 - plan defect repair (wave 2 gate): write scope granted for src/core/state/derived.ts, src/core/systems/buildingDefinitions.ts, and src/core/systems/clanEvent.ts per the t008_ac6 finding's granted-scope note; Verify strengthened to `pnpm tsc --noEmit` plus the research.test.ts run.
+- 2026-10-09 — orchestrator Verify (sidecar gsd-path-verify/task-t018-verify): pass, exit 0; output tail:
+  ```
+  + zod 3.25.76
+  
+  devDependencies:
+  + @types/node 22.20.5
+  + jsdom 25.0.1
+  + typescript 5.9.3
+  + vite 5.4.21
+  + vitest 2.1.9
+  
+  Done in 803ms using pnpm v11.4.0
+  
+  [1m[7m[36m RUN [39m[27m[22m [36mv2.1.9 [39m[90mC:/Users/gatch/.gsd-path/projects/6766097597d76e29/1d504e52cfc1b1c5/verify/task-t018-verify[39m
+  
+   [32m✓[39m src/core/systems/research.test.ts [2m([22m[2m8 tests[22m[2m)[22m[90m 6[2mms[22m[39m
+  
+  [2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+  [2m      Tests [22m [1m[32m8 passed[39m[22m[90m (8)[39m
+  [2m   Start at [22m 19:57:31
+  [2m   Duration [22m 899ms[2m (transform 88ms, setup 0ms, collect 134ms, tests 6ms, environment 434ms, prepare 84ms)[22m
+  ```
