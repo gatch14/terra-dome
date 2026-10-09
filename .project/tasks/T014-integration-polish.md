@@ -3,9 +3,9 @@ id: T014
 title: Integration, polish, and full success criteria verification
 wave: 5
 deps: ["T010", "T011", "T012", "T013"]
-status: pending
-agent: null
-base: null
+status: done
+agent: task-t014
+base: 96ac22f1bad6fec38095064051c82a46d7a67c12
 worktree: null
 task_branch: null
 files:
@@ -98,3 +98,4 @@ Heavy: yes
 
 - 2026-10-09 — created by planner
 - 2026-10-09 — plan defect repair (pre-dispatch): ambiguous AC repaired — AC1 "resources at 0" contradicted the approved Base-tab walkthrough (first build must be queueable immediately, cost 200/100); restated as starting values 500 materials / 300 energy / 0 research data, per T002 Approach and the settled decision.
+- 2026-10-09 — orchestrator Verify (sidecar gsd-path-verify/task-t014-verify): pass, exit 0
