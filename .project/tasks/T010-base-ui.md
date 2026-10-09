@@ -3,9 +3,9 @@ id: T010
 title: Implement Base tab UI with building grid, resource counters, build queue
 wave: 3
 deps: ["T006", "T007"]
-status: pending
-agent: null
-base: null
+status: done
+agent: task-t010
+base: f05ddef84c4c310fea9d8c3da437b2a561a68a9c
 worktree: null
 task_branch: null
 files:
@@ -85,3 +85,4 @@ Heavy: no
 
 - 2026-10-09 — created by planner
 - 2026-10-09 — plan defect repair (pre-dispatch): files coverage — added `src/ui/utils/format.ts` (shared number/label formatting util used by counters and queue timers was undeclared).
+- 2026-10-09 — orchestrator Verify (sidecar gsd-path-verify/task-t010-verify): pass, exit 0
