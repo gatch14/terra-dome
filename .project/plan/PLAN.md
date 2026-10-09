@@ -160,6 +160,16 @@ Review depth: deep
 | T020 | Fix wave 3 cycle 1 review findings in T010 | T010 | src/ui/components/BuildQueue.tsx, src/ui/components/BuildingGrid.tsx, src/ui/components/BuildingSlot.tsx, src/ui/components/ResourceCounters.tsx, src/ui/screens/BaseScreen.tsx, src/ui/utils/format.ts |
 | T021 | Fix wave 3 cycle 1 review findings in T011 | T011 | src/ui/components/ResearchCategory.tsx, src/ui/components/ResearchNode.tsx, src/ui/components/ResearchQueue.tsx, src/ui/components/TechTree.tsx, src/ui/screens/ResearchScreen.tsx |
 
+## Wave 9 — fix wave 4 cycle 1 review findings
+
+Goal: Repair the blocking findings of the wave 4 cycle 1 review without changing source task contracts.
+Review depth: deep
+
+| Task | Title | Deps | Files |
+|------|-------|------|-------|
+| T022 | Fix wave 4 cycle 1 review findings in T012 | T012 | src/ui/components/ClanLeaderboard.tsx, src/ui/components/EventResultsModal.tsx, src/ui/components/EventTimer.tsx, src/ui/components/PointLog.tsx, src/ui/screens/ClanEventScreen.tsx |
+| T023 | Fix wave 4 cycle 1 review findings in T013 | T013 | src/core/systems/shop.ts, src/core/systems/shopDefinitions.ts, src/data/shop.json, src/ui/components/CurrencyDisplay.tsx, src/ui/components/Inventory.tsx, src/ui/components/ShopItem.tsx, src/ui/screens/ShopScreen.tsx |
+
 ## Intent coverage
 
 | Criterion | Task | Acceptance |
