@@ -1,0 +1,5 @@
+[
+  { "id": "materials", "name": "Materials", "baseStorage": 1000, "baseRate": 1 },
+  { "id": "energy", "name": "Energy", "baseStorage": 1000, "baseRate": 0.5 },
+  { "id": "researchData", "name": "Research Data", "baseStorage": 500, "baseRate": 0.1 }
+]

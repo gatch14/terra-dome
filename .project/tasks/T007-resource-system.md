@@ -3,9 +3,9 @@ id: T007
 title: Implement resource system with production rates and storage caps
 wave: 2
 deps: ["T005"]
-status: pending
-agent: null
-base: null
+status: done
+agent: build_T007
+base: 4bf5bdf61758ec31ccad8281847771f6410aefdf
 worktree: null
 task_branch: null
 files:
@@ -79,3 +79,4 @@ Heavy: no
 
 - 2026-10-09 — created by planner
 - 2026-10-09 — plan defect repair (pre-dispatch): files coverage — added `src/core/systems/resources.test.ts` (task's unit tests were undeclared).
+- 2026-10-09 — orchestrator Verify (sidecar gsd-path-verify/task-t007-verify): pass, exit 0
