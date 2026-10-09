@@ -3,9 +3,9 @@ id: T003
 title: Implement timer system with absolute endTime pattern
 wave: 1
 deps: ["T002"]
-status: pending
-agent: null
-base: null
+status: done
+agent: build_T003
+base: 8e796e6cfdf47f9f56463735dd35b915d9e22147
 worktree: null
 task_branch: null
 files:
@@ -66,3 +66,5 @@ Heavy: no
 
 - 2026-10-09 — created by planner
 - 2026-10-09 — plan defect repair (pre-dispatch): files coverage — added `src/core/time/timerManager.test.ts` (task's unit tests were undeclared).
+- 2026-10-09 — orchestrator Verify (sidecar gsd-path-verify/task-t003-verify): fail, exit 1
+- 2026-10-09 — orchestrator Verify (sidecar gsd-path-verify/task-t003-verify): pass, exit 0
