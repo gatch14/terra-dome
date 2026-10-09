@@ -3,9 +3,9 @@ id: T016
 title: Fix wave 1 cycle 1 review findings in T005
 wave: 6
 deps: [T005]
-status: pending
-agent: null
-base: null
+status: done
+agent: task-t016
+base: df811d040e5f49bb024aef2822e4af13593d770d
 worktree: null
 task_branch: null
 files:
@@ -81,3 +81,26 @@ Criterion: Storage event: second tab save triggers reload in first tab
 
 - 2026-10-09 - created by dispatch_driver.py fix-tasks from wave 1 cycle 1
 - 2026-10-09 - plan defect repair (wave 1 gate): Verify strengthened from file-existence to `pnpm tsc --noEmit` plus persistence.ts presence (AC/SC6 claims are behavioral).
+- 2026-10-09 — orchestrator Verify (sidecar gsd-path-verify/task-t016-verify): pass, exit 0; output tail:
+  ```
+  Lockfile is up to date, resolution step is skipped
+  Progress: resolved 1, reused 0, downloaded 0, added 0
+  Packages: +110
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Progress: resolved 110, reused 110, downloaded 0, added 110, done
+  
+  dependencies:
+  + @preact/signals 1.3.4
+  + idb-keyval 6.3.0
+  + preact 10.29.8
+  + zod 3.25.76
+  
+  devDependencies:
+  + @types/node 22.20.5
+  + jsdom 25.0.1
+  + typescript 5.9.3
+  + vite 5.4.21
+  + vitest 2.1.9
+  
+  Done in 890ms using pnpm v11.4.0
+  ```
