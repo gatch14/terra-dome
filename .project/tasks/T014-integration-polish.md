@@ -73,7 +73,7 @@ Wire all screens into main App with tab navigation, add global toast notificatio
 
 ## Acceptance criteria
 
-1. Open index.html -> Base tab active, Command Center visible, resources at 0
+1. Open index.html -> Base tab active, Command Center visible, resources at starting values (500 materials, 300 energy, 0 research data) and ticking up
 2. Queue Resource Production building -> timer counts down -> completes -> resource rate increases
 3. Resources tick up per second, counters animate
 4. Click Research tab -> tree visible -> start research -> timer -> completes -> bonus applied
@@ -97,3 +97,4 @@ Heavy: yes
 ## Log
 
 - 2026-10-09 — created by planner
+- 2026-10-09 — plan defect repair (pre-dispatch): ambiguous AC repaired — AC1 "resources at 0" contradicted the approved Base-tab walkthrough (first build must be queueable immediately, cost 200/100); restated as starting values 500 materials / 300 energy / 0 research data, per T002 Approach and the settled decision.

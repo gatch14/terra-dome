@@ -14,6 +14,7 @@ files:
   - src/ui/components/ResourceCounters.tsx
   - src/ui/components/BuildQueue.tsx
   - src/ui/components/BuildingSlot.tsx
+  - src/ui/utils/format.ts
 ---
 
 # T010 — Implement Base tab UI with building grid, resource counters, build queue
@@ -83,3 +84,4 @@ Heavy: no
 ## Log
 
 - 2026-10-09 — created by planner
+- 2026-10-09 — plan defect repair (pre-dispatch): files coverage — added `src/ui/utils/format.ts` (shared number/label formatting util used by counters and queue timers was undeclared).

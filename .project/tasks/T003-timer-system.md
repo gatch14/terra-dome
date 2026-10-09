@@ -10,6 +10,7 @@ worktree: null
 task_branch: null
 files:
   - src/core/time/timerManager.ts
+  - src/core/time/timerManager.test.ts
   - src/core/time/types.ts
 ---
 
@@ -64,3 +65,4 @@ Heavy: no
 ## Log
 
 - 2026-10-09 — created by planner
+- 2026-10-09 — plan defect repair (pre-dispatch): files coverage — added `src/core/time/timerManager.test.ts` (task's unit tests were undeclared).

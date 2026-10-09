@@ -14,6 +14,7 @@ files:
   - src/ui/components/Inventory.tsx
   - src/ui/components/CurrencyDisplay.tsx
   - src/core/systems/shop.ts
+  - src/core/systems/shopDefinitions.ts
   - src/data/shop.json
 ---
 
@@ -82,3 +83,4 @@ Heavy: no
 ## Log
 
 - 2026-10-09 — created by planner
+- 2026-10-09 — plan defect repair (pre-dispatch): files coverage — added `src/core/systems/shopDefinitions.ts` (SHOP_DEFINITIONS data loader used by shop.ts was undeclared).

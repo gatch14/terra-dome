@@ -53,7 +53,7 @@ States:
 
 Walkthrough:
 1. Open index.html in browser
-2. Verify Base tab shows Command Center Lv.1, 2 empty building slots, Research Lab locked
+2. Verify Base tab shows Command Center Lv.1, 4 empty resource slots, Research Lab locked
 3. Click empty slot → select "Resource Production" → confirm → building added to queue
 4. Verify queue shows building with countdown timer
 5. Wait for timer → verify building appears on grid, resource rate increases
@@ -96,7 +96,7 @@ Walkthrough:
 4. Perform action in Base tab (queue build) → verify Player points increase
 5. Start research in Research tab → verify Player points increase
 6. Verify point breakdown shows source: "Build queued: +50", "Research started: +100"
-7. Wait for event end (or advance time in debug) → verify results modal shows winner
+7. Wait for event end (to skip the 7-day wait: set the save's clanEvent.eventEndTime to a past timestamp via IndexedDB devtools) → verify results modal shows winner
 8. Reload page → verify event timer, scores, and cycle state restored
 
 ### Shop Tab — T013
@@ -157,3 +157,18 @@ Walkthrough:
 - T012 (Clan Event UI) depends on T009
 - T013 (Shop UI) depends on T005, T006
 - T014 (Integration & Polish) depends on T010, T011, T012, T013
+
+## Plan defects repaired (pre-dispatch, 2026-10-09)
+
+All repairs were made in the build layer against INTENT.md and SYNTHESIS.md; each affected task brief also carries its own Log line.
+
+- T001 files: added `.gitignore`, `pnpm-lock.yaml`, `pnpm-workspace.yaml`, `tsconfig.node.json`, `src/core/state/types.ts` (undeclared or compile-required product files; the frozen pnpm install in Verify needs the lockfile and workspace config). Same-wave file overlap forbids T001/T002 sharing paths, so the final typed `gameState.ts` + `types.ts` land at T001. `persistence.ts` is owned by T005 (its ACs depend on the module end-to-end); T001's Approach and AC5 were repaired to match — `main.ts` lands as a state-only minimal bootstrap and `index.html` with 4 static tab buttons (both upgraded at T014).
+- T002 files: reduced to `src/core/state/derived.ts` (`gameState.ts`/`types.ts` are owned by T001 after the overlap repair; Verify names only `derived.ts`).
+- T003, T004, T006, T007, T008, T009 files: added each task's unit test file (undeclared).
+- T004 files: added `src/core/time/resumeTimers.ts` (undeclared).
+- T005 files: added `src/core/persistence/persistence.ts` (undeclared; the Zod-validated v2 module upgrades the T001 plain variant).
+- T010 files: added `src/ui/utils/format.ts` (undeclared shared util).
+- T013 files: added `src/core/systems/shopDefinitions.ts` (undeclared SHOP_DEFINITIONS loader).
+- T002 Approach and T014 AC1 stated initial resources as 0, which contradicts the approved Base-tab walkthrough (step 3 queues the first building immediately; cost 200/100). Settled starting state: 500 materials, 300 energy, 0 research data, 1000 premium currency.
+- Base Tab walkthrough step 2 said "2 empty building slots"; the slot model (SYNTHESIS, buildings.json) is 6 slots — 1 fixed Command Center, 4 resource slots, 1 locked lab. Corrected to "4 empty resource slots".
+- Clan Event walkthrough step 7 referenced "advance time in debug", a debug mechanism no task provides. Corrected to editing the save's `clanEvent.eventEndTime` via IndexedDB devtools (the technique used in the pre-landing smoke test).

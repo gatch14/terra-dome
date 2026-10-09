@@ -10,6 +10,7 @@ worktree: null
 task_branch: null
 files:
   - src/core/systems/research.ts
+  - src/core/systems/research.test.ts
   - src/core/systems/researchDefinitions.ts
   - src/data/research.json
 ---
@@ -80,3 +81,4 @@ Heavy: no
 ## Log
 
 - 2026-10-09 — created by planner
+- 2026-10-09 — plan defect repair (pre-dispatch): files coverage — added `src/core/systems/research.test.ts` (task's unit tests were undeclared).

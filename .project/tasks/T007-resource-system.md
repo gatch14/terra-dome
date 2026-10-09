@@ -10,6 +10,7 @@ worktree: null
 task_branch: null
 files:
   - src/core/systems/resources.ts
+  - src/core/systems/resources.test.ts
   - src/core/systems/resourceDefinitions.ts
   - src/data/resources.json
 ---
@@ -77,3 +78,4 @@ Heavy: no
 ## Log
 
 - 2026-10-09 — created by planner
+- 2026-10-09 — plan defect repair (pre-dispatch): files coverage — added `src/core/systems/resources.test.ts` (task's unit tests were undeclared).

@@ -9,6 +9,7 @@ base: null
 worktree: null
 task_branch: null
 files:
+  - src/core/persistence/persistence.ts
   - src/core/persistence/schema.ts
   - src/core/persistence/migration.ts
 ---
@@ -67,3 +68,4 @@ Heavy: no
 ## Log
 
 - 2026-10-09 — created by planner
+- 2026-10-09 — plan defect repair (pre-dispatch): files coverage — added `src/core/persistence/persistence.ts` (the save/load module itself was undeclared; T005 now owns it end-to-end together with its Zod schema + migration).

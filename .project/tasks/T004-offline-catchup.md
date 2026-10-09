@@ -10,6 +10,8 @@ worktree: null
 task_branch: null
 files:
   - src/core/time/offlineCatchup.ts
+  - src/core/time/offlineCatchup.test.ts
+  - src/core/time/resumeTimers.ts
 ---
 
 # T004 — Implement offline progression catch-up with 24h cap
@@ -59,3 +61,4 @@ Heavy: no
 ## Log
 
 - 2026-10-09 — created by planner
+- 2026-10-09 — plan defect repair (pre-dispatch): files coverage — added `src/core/time/offlineCatchup.test.ts` (undeclared tests) and `src/core/time/resumeTimers.ts` (post-catch-up timer resume helper owned by this task; depends on T003 timerManager).
