@@ -3,9 +3,9 @@ id: T021
 title: Fix wave 3 cycle 1 review findings in T011
 wave: 8
 deps: [T011]
-status: pending
-agent: null
-base: null
+status: done
+agent: task-t021
+base: 044860589ee35a0b6d197ee0ff0cb9d62800aae7
 worktree: null
 task_branch: null
 files:
@@ -67,3 +67,4 @@ Criterion: Click available node → confirmation → starts research, adds to qu
 ## Log
 
 - 2026-10-09 — created by dispatch_driver.py fix-tasks from wave 3 cycle 1
+- 2026-10-09 — orchestrator Verify (sidecar gsd-path-verify/task-t021-verify): pass, exit 0
