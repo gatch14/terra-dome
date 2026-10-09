@@ -5,7 +5,7 @@ milestone: null     # set by define; names the archive directory at ship
 phase: build
                     # inspect only for brownfield; greenfield starts at define
                     # roadmap only in program flow (CHARTER.md exists)
-status: active
+status: blocked
 branch: gsd-path/M001
                     # the router rebinds before any next-milestone file change
                     # the bound branch is never main; ship integrates it there
@@ -41,3 +41,4 @@ it on completion. If this file and the artifacts disagree, the artifacts win
 - 2026-10-09 — build — build started
 - 2026-10-09 — build — build blocked: serial task T002 dispatch record advanced past its base (bookkeeping checkpoint committed after activation)
 - 2026-10-09 — build — build resumed after T002 dispatch record reset (user ruling 2026-10-09)
+- 2026-10-09 — build — build blocked: T006, T007, T008 done but no landing commit proves it (attest refuses rejected landing evidence; restored landing bytes fail the wave-2 handoff on repeated numbered item)
