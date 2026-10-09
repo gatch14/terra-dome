@@ -3,9 +3,9 @@ id: T023
 title: Fix wave 4 cycle 1 review findings in T013
 wave: 9
 deps: [T013]
-status: pending
-agent: null
-base: null
+status: done
+agent: task-t023
+base: 3f73656d1449343a3eed576cdf3e8a66e15ee500
 worktree: null
 task_branch: null
 files:
@@ -69,3 +69,4 @@ Criterion: Click buy → confirmation modal → deducts currency
 ## Log
 
 - 2026-10-09 — created by dispatch_driver.py fix-tasks from wave 4 cycle 1
+- 2026-10-09 — orchestrator Verify (sidecar gsd-path-verify/task-t023-verify): pass, exit 0
