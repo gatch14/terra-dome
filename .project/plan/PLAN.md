@@ -139,6 +139,17 @@ Review depth: full
 | T015 | Fix wave 1 cycle 1 review findings in T004 | T004 | src/core/time/offlineCatchup.test.ts, src/core/time/offlineCatchup.ts, src/core/time/resumeTimers.ts |
 | T016 | Fix wave 1 cycle 1 review findings in T005 | T005 | src/core/persistence/migration.ts, src/core/persistence/persistence.ts, src/core/persistence/schema.ts |
 
+## Wave 7 — fix wave 2 cycle 1 review findings
+
+Goal: Repair the blocking findings of the wave 2 cycle 1 review without changing source task contracts.
+Review depth: full
+
+| Task | Title | Deps | Files |
+|------|-------|------|-------|
+| T017 | Fix wave 2 cycle 1 review findings in T006 | T006 | src/core/systems/buildingDefinitions.ts, src/core/systems/buildings.test.ts, src/core/systems/buildings.ts, src/data/buildings.json |
+| T018 | Fix wave 2 cycle 1 review findings in T008 | T008 | src/core/systems/research.test.ts, src/core/systems/research.ts, src/core/systems/researchDefinitions.ts, src/data/research.json |
+| T019 | Fix wave 2 cycle 1 review findings in T009 | T009 | src/core/systems/clanEvent.test.ts, src/core/systems/clanEvent.ts, src/core/systems/clanEventDefinitions.ts, src/data/clanEvent.json |
+
 ## Intent coverage
 
 | Criterion | Task | Acceptance |
