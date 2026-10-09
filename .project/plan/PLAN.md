@@ -150,6 +150,16 @@ Review depth: full
 | T018 | Fix wave 2 cycle 1 review findings in T008 | T008 | src/core/systems/research.test.ts, src/core/systems/research.ts, src/core/systems/researchDefinitions.ts, src/data/research.json |
 | T019 | Fix wave 2 cycle 1 review findings in T009 | T009 | src/core/systems/clanEvent.test.ts, src/core/systems/clanEvent.ts, src/core/systems/clanEventDefinitions.ts, src/data/clanEvent.json |
 
+## Wave 8 — fix wave 3 cycle 1 review findings
+
+Goal: Repair the blocking findings of the wave 3 cycle 1 review without changing source task contracts.
+Review depth: deep
+
+| Task | Title | Deps | Files |
+|------|-------|------|-------|
+| T020 | Fix wave 3 cycle 1 review findings in T010 | T010 | src/ui/components/BuildQueue.tsx, src/ui/components/BuildingGrid.tsx, src/ui/components/BuildingSlot.tsx, src/ui/components/ResourceCounters.tsx, src/ui/screens/BaseScreen.tsx, src/ui/utils/format.ts |
+| T021 | Fix wave 3 cycle 1 review findings in T011 | T011 | src/ui/components/ResearchCategory.tsx, src/ui/components/ResearchNode.tsx, src/ui/components/ResearchQueue.tsx, src/ui/components/TechTree.tsx, src/ui/screens/ResearchScreen.tsx |
+
 ## Intent coverage
 
 | Criterion | Task | Acceptance |
