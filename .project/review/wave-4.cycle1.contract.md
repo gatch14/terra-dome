@@ -4,6 +4,7 @@ Wave verdict: blocked
 Cycle: 1
 Depth: deep
 Tasks reviewed: 2
+Lens: contract
 
 ## T012 — Implement Clan Event tab UI with timer, leaderboard, point log: pass
 
@@ -45,3 +46,11 @@ Contract violations (blocking):
 - ❌ Click buy → confirmation modal → deducts currency — ShopItem buy handler deducts currency directly without confirmation step
 - ❌ CurrencyDisplay shows gold/materials/research data — CurrencyDisplay lacks aria-live="polite" for screen reader announcements
 - ❌ Shop tab loads — ShopScreen re-renders full item grid on every currency change; no memo on ShopItem
+
+## Intent coverage
+
+### SC4 — **Weekly Clan Event (simulated):** 7-day timer, two "clans" (player + AI), points earned from actions (build, research, produce), live leaderboard: fail
+- ❌ EventTimer uses a setInterval with local Date.now() delta — it drifts on a backgrounded tab and has no visibilitychange handling; the 7-day countdown, leaderboard and point log otherwise render (EventTimer, ClanLeaderboard, PointLog).
+
+### SC5 — **Shop:** Premium currency, 3–4 consumable items (time reducers, point boosters, resource packs), purchase applies effect immediately: fail
+- ❌ the ShopItem buy handler deducts currency directly without a confirmation step and CurrencyDisplay lacks aria-live — contract violations recorded for T013; currency, item grid and inventory otherwise render (ShopScreen, ShopItem, Inventory).

@@ -4,6 +4,7 @@ Wave verdict: blocked
 Cycle: 1
 Depth: deep
 Tasks reviewed: 2
+Lens: adversarial
 
 ## T012 — Implement Clan Event tab UI with timer, leaderboard, point log: fail
 
@@ -50,3 +51,11 @@ Contract violations (blocking):
 - ❌ Inventory shows owned items — Inventory panel lacks keyboard navigation (Tab/Arrow keys); no focus management
 - ❌ Shop definitions loaded from shop.json — shop.ts mutates gameState.shop directly without transaction guard; race with offline catch-up
 - ❌ Reload page → currency, inventory, shop state restored — shopDefinitions.ts imports full item objects; Zod may not validate nested structures correctly
+
+## Intent coverage
+
+### SC4 — **Weekly Clan Event (simulated):** 7-day timer, two "clans" (player + AI), points earned from actions (build, research, produce), live leaderboard: fail
+- ❌ the EventResultsModal does not trap focus, Escape does not close it, and ClanLeaderboard/PointLog lack accessible table/list semantics — wave 4 cycle 1 adversarial findings for T012.
+
+### SC5 — **Shop:** Premium currency, 3–4 consumable items (time reducers, point boosters, resource packs), purchase applies effect immediately: fail
+- ❌ ShopScreen re-renders the full item grid on every currency change and shop.ts mutates gameState.shop directly without a transaction guard — wave 4 cycle 1 adversarial findings for T013.

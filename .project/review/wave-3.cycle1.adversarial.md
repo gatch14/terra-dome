@@ -4,6 +4,7 @@ Wave verdict: blocked
 Cycle: 1
 Depth: deep
 Tasks reviewed: 2
+Lens: adversarial
 
 ## T010 — Implement Base tab UI with building grid, resource counters, build queue: fail
 
@@ -52,3 +53,14 @@ Contract violations (blocking):
 - ❌ ResearchNode shows name, cost, prerequisites — ResearchNode clickable div without role="button", tabindex, aria-pressed for queued state
 - ❌ Research tab loads — TechTree re-renders full SVG on every researchData change; no memo on ResearchNode; ResearchCategory creates new Map per render
 - ❌ Reload page → all research state restored — TechTree researchData signal and completedResearch derived signal race on concurrent queue start/complete; ResearchNode mutates gameState.research.queue directly without transaction guard
+
+## Intent coverage
+
+### SC1 — **Base screen:** Command Center + 2 resource buildings + Research Lab, each with build queue and timers: fail
+- ❌ BuildingGrid creates 25 slots × 4 signal subscriptions without virtualization and formatNumber allocates a new Intl.NumberFormat per call — wave 3 cycle 1 adversarial finding for T010.
+
+### SC2 — **Resource system:** 3 resources (Materials, Energy, Research Data) ticking per second based on building levels: fail
+- ❌ ResourceCounters lacks aria-live="polite", so resource changes are not announced to screen readers — wave 3 cycle 1 adversarial finding for T010.
+
+### SC3 — **Tech tree:** 5–8 researches unlocking production/speed bonuses, visible tree UI: fail
+- ❌ TechTree re-renders the full SVG on every researchData change and ResearchNode mutates gameState.research.queue without a transaction guard — wave 3 cycle 1 adversarial findings for T011.
