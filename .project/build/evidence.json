@@ -1,0 +1,680 @@
+{
+  "canonical_project_dir": ".project",
+  "command": "verify-landed",
+  "head": "06d975de8549e88739123676df2b7ec45591236a",
+  "project_dir": ".project",
+  "tasks": [
+    {
+      "classification": "proven-landed",
+      "command": "reconcile",
+      "history": {
+        "branch": "gsd-path/M001",
+        "candidates": [
+          {
+            "base": "0e5d1e9717676a3922a819b47c3047805b4af0fe",
+            "commit": "b1edce5eec157881c405e31effc39a5768d8bfad",
+            "valid": true
+          }
+        ],
+        "head": "06d975de8549e88739123676df2b7ec45591236a",
+        "subject": "T001: Scaffold Vite + TypeScript + Preact Signals project"
+      },
+      "landed_commit": "b1edce5eec157881c405e31effc39a5768d8bfad",
+      "reasons": [],
+      "task": {
+        "base": "0e5d1e9717676a3922a819b47c3047805b4af0fe",
+        "id": "T001",
+        "status": "done",
+        "task_file": ".project/tasks/T001-scaffold-project.md"
+      }
+    },
+    {
+      "classification": "proven-landed",
+      "command": "reconcile",
+      "history": {
+        "branch": "gsd-path/M001",
+        "candidates": [
+          {
+            "base": "6ea4be19593fc54c55c3c1df848a8d62d927158d",
+            "commit": "0c326124614432c8e64c4e947399c6dfac676fe6",
+            "valid": true
+          }
+        ],
+        "head": "06d975de8549e88739123676df2b7ec45591236a",
+        "subject": "T002: Implement core game state signals and derived state"
+      },
+      "landed_commit": "0c326124614432c8e64c4e947399c6dfac676fe6",
+      "reasons": [],
+      "task": {
+        "base": "6ea4be19593fc54c55c3c1df848a8d62d927158d",
+        "id": "T002",
+        "status": "done",
+        "task_file": ".project/tasks/T002-core-state-signals.md"
+      }
+    },
+    {
+      "classification": "proven-landed",
+      "command": "reconcile",
+      "history": {
+        "branch": "gsd-path/M001",
+        "candidates": [
+          {
+            "base": "8e796e6cfdf47f9f56463735dd35b915d9e22147",
+            "commit": "19d29fe2d7ec462809014fcb4d072a0c328ddd5e",
+            "valid": true
+          }
+        ],
+        "head": "06d975de8549e88739123676df2b7ec45591236a",
+        "subject": "T003: Implement timer system with absolute endTime pattern"
+      },
+      "landed_commit": "19d29fe2d7ec462809014fcb4d072a0c328ddd5e",
+      "reasons": [],
+      "task": {
+        "base": "8e796e6cfdf47f9f56463735dd35b915d9e22147",
+        "id": "T003",
+        "status": "done",
+        "task_file": ".project/tasks/T003-timer-system.md"
+      }
+    },
+    {
+      "classification": "proven-landed",
+      "command": "reconcile",
+      "history": {
+        "branch": "gsd-path/M001",
+        "candidates": [
+          {
+            "base": "c5509b9bb926f2d49b9a2dff75d1d1ea3fd29301",
+            "commit": "abe05c5c81aa2392cd89b90b92f691e7fa06559d",
+            "valid": true
+          }
+        ],
+        "head": "06d975de8549e88739123676df2b7ec45591236a",
+        "subject": "T004: Implement offline progression catch-up with 24h cap"
+      },
+      "landed_commit": "abe05c5c81aa2392cd89b90b92f691e7fa06559d",
+      "reasons": [],
+      "task": {
+        "base": "c5509b9bb926f2d49b9a2dff75d1d1ea3fd29301",
+        "id": "T004",
+        "status": "done",
+        "task_file": ".project/tasks/T004-offline-catchup.md"
+      }
+    },
+    {
+      "classification": "proven-landed",
+      "command": "reconcile",
+      "history": {
+        "branch": "gsd-path/M001",
+        "candidates": [
+          {
+            "base": "dddd037967eaf015ba12fa466ba4d459f61ce4f5",
+            "commit": "b91b9932cf6248eb2d72a7b4e4b7aeee31ec32f7",
+            "valid": true
+          }
+        ],
+        "head": "06d975de8549e88739123676df2b7ec45591236a",
+        "subject": "T005: Implement IndexedDB persistence with versioned saves and migration"
+      },
+      "landed_commit": "b91b9932cf6248eb2d72a7b4e4b7aeee31ec32f7",
+      "reasons": [],
+      "task": {
+        "base": "dddd037967eaf015ba12fa466ba4d459f61ce4f5",
+        "id": "T005",
+        "status": "done",
+        "task_file": ".project/tasks/T005-persistence.md"
+      }
+    },
+    {
+      "classification": "proven-landed",
+      "command": "reconcile",
+      "history": {
+        "branch": "gsd-path/M001",
+        "candidates": [
+          {
+            "base": "50cd93e18bf6e56442b0ca0527042996a869c35c",
+            "commit": "127482d4ec3d8d23abebb7e21375ca0e7629df3e",
+            "valid": true
+          }
+        ],
+        "head": "06d975de8549e88739123676df2b7ec45591236a",
+        "subject": "T006: Implement building system with queue and data-driven definitions"
+      },
+      "landed_commit": "127482d4ec3d8d23abebb7e21375ca0e7629df3e",
+      "reasons": [],
+      "task": {
+        "base": "50cd93e18bf6e56442b0ca0527042996a869c35c",
+        "id": "T006",
+        "status": "done",
+        "task_file": ".project/tasks/T006-building-system.md"
+      }
+    },
+    {
+      "classification": "proven-landed",
+      "command": "reconcile",
+      "history": {
+        "branch": "gsd-path/M001",
+        "candidates": [
+          {
+            "base": "4bf5bdf61758ec31ccad8281847771f6410aefdf",
+            "commit": "f65d6811b0a9e410cda9edfad923bda217301598",
+            "valid": true
+          }
+        ],
+        "head": "06d975de8549e88739123676df2b7ec45591236a",
+        "subject": "T007: Implement resource system with production rates and storage caps"
+      },
+      "landed_commit": "f65d6811b0a9e410cda9edfad923bda217301598",
+      "reasons": [],
+      "task": {
+        "base": "4bf5bdf61758ec31ccad8281847771f6410aefdf",
+        "id": "T007",
+        "status": "done",
+        "task_file": ".project/tasks/T007-resource-system.md"
+      }
+    },
+    {
+      "classification": "proven-landed",
+      "command": "reconcile",
+      "history": {
+        "branch": "gsd-path/M001",
+        "candidates": [
+          {
+            "base": "405b26e7a08b5b15a71eb4dc43ae7cfb54775b4a",
+            "commit": "24d83c727b39c682fa458cc0914bc8695450fd74",
+            "valid": true
+          }
+        ],
+        "head": "06d975de8549e88739123676df2b7ec45591236a",
+        "subject": "T008: Implement research system with tech tree and bonuses"
+      },
+      "landed_commit": "24d83c727b39c682fa458cc0914bc8695450fd74",
+      "reasons": [],
+      "task": {
+        "base": "405b26e7a08b5b15a71eb4dc43ae7cfb54775b4a",
+        "id": "T008",
+        "status": "done",
+        "task_file": ".project/tasks/T008-research-system.md"
+      }
+    },
+    {
+      "classification": "proven-landed",
+      "command": "reconcile",
+      "history": {
+        "branch": "gsd-path/M001",
+        "candidates": [
+          {
+            "base": "3421ea87da6bffaea3f000e8877681137f45e841",
+            "commit": "b77da431a9a3fff3de4aceeb2a13f47f50314f9b",
+            "valid": true
+          }
+        ],
+        "head": "06d975de8549e88739123676df2b7ec45591236a",
+        "subject": "T009: Implement clan event system with AI opponent and scoring"
+      },
+      "landed_commit": "b77da431a9a3fff3de4aceeb2a13f47f50314f9b",
+      "reasons": [],
+      "task": {
+        "base": "3421ea87da6bffaea3f000e8877681137f45e841",
+        "id": "T009",
+        "status": "done",
+        "task_file": ".project/tasks/T009-clan-event-system.md"
+      }
+    },
+    {
+      "classification": "proven-landed",
+      "command": "reconcile",
+      "history": {
+        "branch": "gsd-path/M001",
+        "candidates": [
+          {
+            "base": "f05ddef84c4c310fea9d8c3da437b2a561a68a9c",
+            "commit": "c11305a01e819c1dc3a127f14057e1c81f6b4640",
+            "valid": true
+          }
+        ],
+        "head": "06d975de8549e88739123676df2b7ec45591236a",
+        "subject": "T010: Implement Base tab UI with building grid, resource counters, build queue"
+      },
+      "landed_commit": "c11305a01e819c1dc3a127f14057e1c81f6b4640",
+      "reasons": [],
+      "task": {
+        "base": "f05ddef84c4c310fea9d8c3da437b2a561a68a9c",
+        "id": "T010",
+        "status": "done",
+        "task_file": ".project/tasks/T010-base-ui.md"
+      }
+    },
+    {
+      "classification": "proven-landed",
+      "command": "reconcile",
+      "history": {
+        "branch": "gsd-path/M001",
+        "candidates": [
+          {
+            "base": "bc56b453c2227c0a327441cd110987ffe43a6ab1",
+            "commit": "378e727ff40588fe0f4c36283ed1127b81959e76",
+            "valid": true
+          }
+        ],
+        "head": "06d975de8549e88739123676df2b7ec45591236a",
+        "subject": "T011: Implement Research tab UI with tech tree and research queue"
+      },
+      "landed_commit": "378e727ff40588fe0f4c36283ed1127b81959e76",
+      "reasons": [],
+      "task": {
+        "base": "bc56b453c2227c0a327441cd110987ffe43a6ab1",
+        "id": "T011",
+        "status": "done",
+        "task_file": ".project/tasks/T011-research-ui.md"
+      }
+    },
+    {
+      "classification": "proven-landed",
+      "command": "reconcile",
+      "history": {
+        "branch": "gsd-path/M001",
+        "candidates": [
+          {
+            "base": "e0ee2f88e727977d61bb758c1c914ebd7dd6a699",
+            "commit": "81f0738c3885b277eab4cc5a72eb2e7f0858e3c5",
+            "valid": true
+          }
+        ],
+        "head": "06d975de8549e88739123676df2b7ec45591236a",
+        "subject": "T012: Implement Clan Event tab UI with timer, leaderboard, point log"
+      },
+      "landed_commit": "81f0738c3885b277eab4cc5a72eb2e7f0858e3c5",
+      "reasons": [],
+      "task": {
+        "base": "e0ee2f88e727977d61bb758c1c914ebd7dd6a699",
+        "id": "T012",
+        "status": "done",
+        "task_file": ".project/tasks/T012-clan-event-ui.md"
+      }
+    },
+    {
+      "classification": "proven-landed",
+      "command": "reconcile",
+      "history": {
+        "branch": "gsd-path/M001",
+        "candidates": [
+          {
+            "base": "825fe4495aa586009cca0c8bfd05e75838184daf",
+            "commit": "dd94b2fc95de28b40b94fb2ce7bdfe1c5b8762db",
+            "valid": true
+          }
+        ],
+        "head": "06d975de8549e88739123676df2b7ec45591236a",
+        "subject": "T013: Implement Shop tab UI with currency, items, inventory"
+      },
+      "landed_commit": "dd94b2fc95de28b40b94fb2ce7bdfe1c5b8762db",
+      "reasons": [],
+      "task": {
+        "base": "825fe4495aa586009cca0c8bfd05e75838184daf",
+        "id": "T013",
+        "status": "done",
+        "task_file": ".project/tasks/T013-shop-ui.md"
+      }
+    },
+    {
+      "classification": "proven-landed",
+      "command": "reconcile",
+      "history": {
+        "branch": "gsd-path/M001",
+        "candidates": [
+          {
+            "base": "96ac22f1bad6fec38095064051c82a46d7a67c12",
+            "commit": "8f230ec36bb7482ff02993863bc2d143e7b5a4c2",
+            "valid": true
+          }
+        ],
+        "head": "06d975de8549e88739123676df2b7ec45591236a",
+        "subject": "T014: Integration, polish, and full success criteria verification"
+      },
+      "landed_commit": "8f230ec36bb7482ff02993863bc2d143e7b5a4c2",
+      "reasons": [],
+      "task": {
+        "base": "96ac22f1bad6fec38095064051c82a46d7a67c12",
+        "id": "T014",
+        "status": "done",
+        "task_file": ".project/tasks/T014-integration-polish.md"
+      }
+    },
+    {
+      "classification": "proven-landed",
+      "command": "reconcile",
+      "history": {
+        "branch": "gsd-path/M001",
+        "candidates": [
+          {
+            "base": "c8e831d82d49939d3727e6aa8d3992b6c8d017b0",
+            "commit": "ca43fe7b78173e545c06ee39a787272676590ac9",
+            "valid": true
+          }
+        ],
+        "head": "06d975de8549e88739123676df2b7ec45591236a",
+        "subject": "T015: Fix wave 1 cycle 1 review findings in T004"
+      },
+      "landed_commit": "ca43fe7b78173e545c06ee39a787272676590ac9",
+      "reasons": [],
+      "task": {
+        "base": "c8e831d82d49939d3727e6aa8d3992b6c8d017b0",
+        "id": "T015",
+        "status": "done",
+        "task_file": ".project/tasks/T015-fix-wave-1-cycle-1.md"
+      }
+    },
+    {
+      "classification": "proven-landed",
+      "command": "reconcile",
+      "history": {
+        "branch": "gsd-path/M001",
+        "candidates": [
+          {
+            "base": "df811d040e5f49bb024aef2822e4af13593d770d",
+            "commit": "b414b0d86278d4b08c0dcbf019e5ba5931a1bab8",
+            "valid": true
+          }
+        ],
+        "head": "06d975de8549e88739123676df2b7ec45591236a",
+        "subject": "T016: Fix wave 1 cycle 1 review findings in T005"
+      },
+      "landed_commit": "b414b0d86278d4b08c0dcbf019e5ba5931a1bab8",
+      "reasons": [],
+      "task": {
+        "base": "df811d040e5f49bb024aef2822e4af13593d770d",
+        "id": "T016",
+        "status": "done",
+        "task_file": ".project/tasks/T016-fix-wave-1-cycle-1.md"
+      }
+    },
+    {
+      "classification": "proven-landed",
+      "command": "reconcile",
+      "history": {
+        "branch": "gsd-path/M001",
+        "candidates": [
+          {
+            "base": "2ad06e017c0c6a8e718de39bca11256f11ff1514",
+            "commit": "8cb302ca0fe3b57831d069ec0a0546dbc8ed8d79",
+            "valid": true
+          }
+        ],
+        "head": "06d975de8549e88739123676df2b7ec45591236a",
+        "subject": "T017: Fix wave 2 cycle 1 review findings in T006"
+      },
+      "landed_commit": "8cb302ca0fe3b57831d069ec0a0546dbc8ed8d79",
+      "reasons": [],
+      "task": {
+        "base": "2ad06e017c0c6a8e718de39bca11256f11ff1514",
+        "id": "T017",
+        "status": "done",
+        "task_file": ".project/tasks/T017-fix-wave-2-cycle-1.md"
+      }
+    },
+    {
+      "classification": "proven-landed",
+      "command": "reconcile",
+      "history": {
+        "branch": "gsd-path/M001",
+        "candidates": [
+          {
+            "base": "cf7a5a530709580ea58bf830c6671d66705df07f",
+            "commit": "23ebbf0a2ec60bb8d4fe24fa319a077387dd5182",
+            "valid": true
+          }
+        ],
+        "head": "06d975de8549e88739123676df2b7ec45591236a",
+        "subject": "T018: Fix wave 2 cycle 1 review findings in T008"
+      },
+      "landed_commit": "23ebbf0a2ec60bb8d4fe24fa319a077387dd5182",
+      "reasons": [],
+      "task": {
+        "base": "cf7a5a530709580ea58bf830c6671d66705df07f",
+        "id": "T018",
+        "status": "done",
+        "task_file": ".project/tasks/T018-fix-wave-2-cycle-1.md"
+      }
+    },
+    {
+      "classification": "proven-landed",
+      "command": "reconcile",
+      "history": {
+        "branch": "gsd-path/M001",
+        "candidates": [
+          {
+            "base": "da2564aeacffea05efb8a9efc7ec613b5941f444",
+            "commit": "65df5cde9186ee0b0db720fcee6fc591cb889294",
+            "valid": true
+          }
+        ],
+        "head": "06d975de8549e88739123676df2b7ec45591236a",
+        "subject": "T019: Fix wave 2 cycle 1 review findings in T009"
+      },
+      "landed_commit": "65df5cde9186ee0b0db720fcee6fc591cb889294",
+      "reasons": [],
+      "task": {
+        "base": "da2564aeacffea05efb8a9efc7ec613b5941f444",
+        "id": "T019",
+        "status": "done",
+        "task_file": ".project/tasks/T019-fix-wave-2-cycle-1.md"
+      }
+    },
+    {
+      "classification": "proven-landed",
+      "command": "reconcile",
+      "history": {
+        "branch": "gsd-path/M001",
+        "candidates": [
+          {
+            "base": "9daad44ad9e023be15be1592619f7ccab707c2d6",
+            "commit": "286c495e779528ca55dfbd5811b749a49900a0e4",
+            "valid": true
+          }
+        ],
+        "head": "06d975de8549e88739123676df2b7ec45591236a",
+        "subject": "T020: Fix wave 3 cycle 1 review findings in T010"
+      },
+      "landed_commit": "286c495e779528ca55dfbd5811b749a49900a0e4",
+      "reasons": [],
+      "task": {
+        "base": "9daad44ad9e023be15be1592619f7ccab707c2d6",
+        "id": "T020",
+        "status": "done",
+        "task_file": ".project/tasks/T020-fix-wave-3-cycle-1.md"
+      }
+    },
+    {
+      "classification": "proven-landed",
+      "command": "reconcile",
+      "history": {
+        "branch": "gsd-path/M001",
+        "candidates": [
+          {
+            "base": "044860589ee35a0b6d197ee0ff0cb9d62800aae7",
+            "commit": "227d5524bd3a757ef1ba8658d28e03d47314340e",
+            "valid": true
+          }
+        ],
+        "head": "06d975de8549e88739123676df2b7ec45591236a",
+        "subject": "T021: Fix wave 3 cycle 1 review findings in T011"
+      },
+      "landed_commit": "227d5524bd3a757ef1ba8658d28e03d47314340e",
+      "reasons": [],
+      "task": {
+        "base": "044860589ee35a0b6d197ee0ff0cb9d62800aae7",
+        "id": "T021",
+        "status": "done",
+        "task_file": ".project/tasks/T021-fix-wave-3-cycle-1.md"
+      }
+    },
+    {
+      "classification": "proven-landed",
+      "command": "reconcile",
+      "history": {
+        "branch": "gsd-path/M001",
+        "candidates": [
+          {
+            "base": "0579d9612423c3f93208bcccb6d7ead839b27599",
+            "commit": "ed4432518685496a8d81ce818a01c4d32b62f687",
+            "valid": true
+          }
+        ],
+        "head": "06d975de8549e88739123676df2b7ec45591236a",
+        "subject": "T022: Fix wave 4 cycle 1 review findings in T012"
+      },
+      "landed_commit": "ed4432518685496a8d81ce818a01c4d32b62f687",
+      "reasons": [],
+      "task": {
+        "base": "0579d9612423c3f93208bcccb6d7ead839b27599",
+        "id": "T022",
+        "status": "done",
+        "task_file": ".project/tasks/T022-fix-wave-4-cycle-1.md"
+      }
+    },
+    {
+      "classification": "proven-landed",
+      "command": "reconcile",
+      "history": {
+        "branch": "gsd-path/M001",
+        "candidates": [
+          {
+            "base": "3f73656d1449343a3eed576cdf3e8a66e15ee500",
+            "commit": "49873a0ec749b9cf3d264548c1e50b1f13625171",
+            "valid": true
+          }
+        ],
+        "head": "06d975de8549e88739123676df2b7ec45591236a",
+        "subject": "T023: Fix wave 4 cycle 1 review findings in T013"
+      },
+      "landed_commit": "49873a0ec749b9cf3d264548c1e50b1f13625171",
+      "reasons": [],
+      "task": {
+        "base": "3f73656d1449343a3eed576cdf3e8a66e15ee500",
+        "id": "T023",
+        "status": "done",
+        "task_file": ".project/tasks/T023-fix-wave-4-cycle-1.md"
+      }
+    },
+    {
+      "classification": "proven-landed",
+      "command": "reconcile",
+      "history": {
+        "branch": "gsd-path/M001",
+        "candidates": [
+          {
+            "base": "203aa6bffaa8a758ed050621aead52c3e8109c4f",
+            "commit": "3e1d104960e22d2f85855564d9f8eedbacbb78aa",
+            "valid": true
+          }
+        ],
+        "head": "06d975de8549e88739123676df2b7ec45591236a",
+        "subject": "T024: Fix wave 1 cycle 2 review findings in T005"
+      },
+      "landed_commit": "3e1d104960e22d2f85855564d9f8eedbacbb78aa",
+      "reasons": [],
+      "task": {
+        "base": "203aa6bffaa8a758ed050621aead52c3e8109c4f",
+        "id": "T024",
+        "status": "done",
+        "task_file": ".project/tasks/T024-fix-wave-1-cycle-2.md"
+      }
+    },
+    {
+      "classification": "proven-landed",
+      "command": "reconcile",
+      "history": {
+        "branch": "gsd-path/M001",
+        "candidates": [
+          {
+            "base": "dffc0f510d58a53a4dfe2159dde95558c9dc332a",
+            "commit": "6bb42ab69352f68b1b5b0ac3c7452baafded7cb2",
+            "valid": true
+          }
+        ],
+        "head": "06d975de8549e88739123676df2b7ec45591236a",
+        "subject": "T025: Fix wave 3 cycle 2 review findings in T011"
+      },
+      "landed_commit": "6bb42ab69352f68b1b5b0ac3c7452baafded7cb2",
+      "reasons": [],
+      "task": {
+        "base": "dffc0f510d58a53a4dfe2159dde95558c9dc332a",
+        "id": "T025",
+        "status": "done",
+        "task_file": ".project/tasks/T025-fix-wave-3-cycle-2.md"
+      }
+    },
+    {
+      "classification": "proven-landed",
+      "command": "reconcile",
+      "history": {
+        "branch": "gsd-path/M001",
+        "candidates": [
+          {
+            "base": "20366c96f38e0a8d8d226adbc5a0b3767e528c37",
+            "commit": "be017428d8479dc5868c377b407bf84b4edcd27e",
+            "valid": true
+          }
+        ],
+        "head": "06d975de8549e88739123676df2b7ec45591236a",
+        "subject": "T026: Fix wave 2 cycle 2 review findings in T006"
+      },
+      "landed_commit": "be017428d8479dc5868c377b407bf84b4edcd27e",
+      "reasons": [],
+      "task": {
+        "base": "20366c96f38e0a8d8d226adbc5a0b3767e528c37",
+        "id": "T026",
+        "status": "done",
+        "task_file": ".project/tasks/T026-fix-wave-2-cycle-2.md"
+      }
+    },
+    {
+      "classification": "proven-landed",
+      "command": "reconcile",
+      "history": {
+        "branch": "gsd-path/M001",
+        "candidates": [
+          {
+            "base": "c699c4897b6df2d0c8a970540456220ace9f6697",
+            "commit": "dfd5c1f371be820e3213aeddd356d308de097a76",
+            "valid": true
+          }
+        ],
+        "head": "06d975de8549e88739123676df2b7ec45591236a",
+        "subject": "T027: Fix wave 2 cycle 2 review findings in T008"
+      },
+      "landed_commit": "dfd5c1f371be820e3213aeddd356d308de097a76",
+      "reasons": [],
+      "task": {
+        "base": "c699c4897b6df2d0c8a970540456220ace9f6697",
+        "id": "T027",
+        "status": "done",
+        "task_file": ".project/tasks/T027-fix-wave-2-cycle-2.md"
+      }
+    },
+    {
+      "classification": "proven-landed",
+      "command": "reconcile",
+      "history": {
+        "branch": "gsd-path/M001",
+        "candidates": [
+          {
+            "base": "bff4852d5f348e56fbcf267a9b0b1ff991a2c96e",
+            "commit": "e42fbea1c4faef06827c3358e4b000cd4fd93816",
+            "valid": true
+          }
+        ],
+        "head": "06d975de8549e88739123676df2b7ec45591236a",
+        "subject": "T028: Fix wave 2 cycle 2 review findings in T009"
+      },
+      "landed_commit": "e42fbea1c4faef06827c3358e4b000cd4fd93816",
+      "reasons": [],
+      "task": {
+        "base": "bff4852d5f348e56fbcf267a9b0b1ff991a2c96e",
+        "id": "T028",
+        "status": "done",
+        "task_file": ".project/tasks/T028-fix-wave-2-cycle-2.md"
+      }
+    }
+  ]
+}

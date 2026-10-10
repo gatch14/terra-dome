@@ -2,7 +2,7 @@
 pipeline: gsd-path/v2
 project: terra-dome
 milestone: null     # set by define; names the archive directory at ship
-phase: build
+phase: ship
                     # inspect only for brownfield; greenfield starts at define
                     # roadmap only in program flow (CHARTER.md exists)
 status: active
@@ -43,3 +43,4 @@ it on completion. If this file and the artifacts disagree, the artifacts win
 - 2026-10-09 — build — build resumed after T002 dispatch record reset (user ruling 2026-10-09)
 - 2026-10-09 — build — build blocked: T006, T007, T008 done but no landing commit proves it (attest refuses rejected landing evidence; restored landing bytes fail the wave-2 handoff on repeated numbered item)
 - 2026-10-09 — build — build resumed after user ruling 2026-10-09 option 1: T006-T008 task files restored to landing bytes (checkpoint 294e410); wave-2 cycle-2 structural defect remains recorded and will escalate again after remaining waves
+- 2026-10-10 — ship — build done; final review pending
