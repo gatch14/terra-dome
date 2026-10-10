@@ -12,6 +12,8 @@ files:
   - src/core/persistence/migration.ts
   - src/core/persistence/persistence.ts
   - src/core/persistence/schema.ts
+  - src/core/time/offlineCatchup.test.ts
+  - src/ui/App.tsx
 ---
 
 # T024 — Fix wave 1 cycle 2 review findings in T005
@@ -39,19 +41,25 @@ The source task contracts are unchanged; read them and .project/intent/INTENT.md
 ## Acceptance criteria
 
 1. Auto-save triggers on state change (debounced 500ms)
+2. Unit tests cover: normal absence, long absence (>24h), clock skew, zero elapsed, event end during absence
 
 ## Verify
 
 ```bash
 set -e
 (
-test -f src/core/persistence/schema.ts && test -f src/core/persistence/migration.ts
+pnpm tsc --noEmit
+pnpm vitest run
 )
 ```
 
 Heavy: no
 
 ## Review findings
+
+### t004_files
+Criterion: Unit tests cover: normal absence, long absence (>24h), clock skew, zero elapsed, event end during absence
+- Unit tests cover: normal absence, long absence (>24h), clock skew, zero elapsed, event end during absence — reviewer re-run this cycle (`pnpm vitest run`: 6 offlineCatchup cases, full suite 47/47): the file has clock skew, 24h clamp, storage full, timer reduction, completion, event end — but no zero-elapsed case (`lastSave === now`) and no plain normal-absence resource-gain case (resources are only asserted in the 48h clamp and storage-full cases). Cycle 1 named the zero-elapsed gap and fix task T015's landing ca43fe7 changed only its brief, not this test file. fix: add a `lastSave === now` case (no change, no error) and a sub-cap absence case asserting `materials += rate * elapsed`, then re-run `pnpm vitest run src/core/time/offlineCatchup.test.ts`.
 
 ### t005_files
 Criterion: Auto-save triggers on state change (debounced 500ms)
@@ -63,3 +71,5 @@ Criterion: Auto-save triggers on state change (debounced 500ms)
 ## Log
 
 - 2026-10-10 — created by dispatch_driver.py fix-tasks from wave 1 cycle 2
+- 2026-10-10 — plan defect repair (wave 1 gate): fix-tasks reported the t004_files batch as carried by T015, but T015's landing ca43fe7 changed only its brief and the named test cases are still absent from offlineCatchup.test.ts; scope, files and the verbatim t004 finding extended to this task so the repair actually lands (AC 2, Review findings).
+- 2026-10-10 — plan defect repair (wave 1 gate): Verify strengthened from file-existence (`test -f schema.ts && test -f migration.ts`) to `pnpm tsc --noEmit && pnpm vitest run` (fix claims are behavioral). AC6 also requires a UI binding for the storage banner and quota toast, which persistence.ts alone cannot render; the App shell binding lands with this fix inside the listed files plus src/ui/App.tsx (see files).

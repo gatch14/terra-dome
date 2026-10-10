@@ -177,7 +177,16 @@ Review depth: full
 
 | Task | Title | Deps | Files |
 |------|-------|------|-------|
-| T024 | Fix wave 1 cycle 2 review findings in T005 | T005 | src/core/persistence/migration.ts, src/core/persistence/persistence.ts, src/core/persistence/schema.ts |
+| T024 | Fix wave 1 cycle 2 review findings in T005 | T005 | src/core/persistence/migration.ts, src/core/persistence/persistence.ts, src/core/persistence/schema.ts, src/core/time/offlineCatchup.test.ts, src/ui/App.tsx |
+
+## Wave 11 — fix wave 3 cycle 2 review findings
+
+Goal: Repair the blocking findings of the wave 3 cycle 2 review without changing source task contracts.
+Review depth: deep
+
+| Task | Title | Deps | Files |
+|------|-------|------|-------|
+| T025 | Fix wave 3 cycle 2 review findings in T011 | T011 | src/ui/components/ResearchCategory.tsx, src/ui/components/ResearchNode.tsx, src/ui/components/ResearchQueue.tsx, src/ui/components/TechTree.tsx, src/ui/screens/ResearchScreen.tsx |
 
 ## Intent coverage
 
