@@ -1,0 +1,65 @@
+[
+  {
+    "id": "efficient_smelting",
+    "name": "Efficient Smelting",
+    "category": "production",
+    "prereqs": [],
+    "cost": { "materials": 500, "energy": 200, "researchData": 100 },
+    "time": 300,
+    "effect": { "type": "resourceRate", "target": "materials", "value": 0.1 }
+  },
+  {
+    "id": "advanced_circuitry",
+    "name": "Advanced Circuitry",
+    "category": "production",
+    "prereqs": ["efficient_smelting"],
+    "cost": { "materials": 800, "energy": 500, "researchData": 200 },
+    "time": 600,
+    "effect": { "type": "resourceRate", "target": "energy", "value": 0.15 }
+  },
+  {
+    "id": "data_compression",
+    "name": "Data Compression",
+    "category": "production",
+    "prereqs": ["efficient_smelting"],
+    "cost": { "materials": 400, "energy": 300, "researchData": 300 },
+    "time": 450,
+    "effect": { "type": "resourceRate", "target": "researchData", "value": 0.2 }
+  },
+  {
+    "id": "rapid_construction",
+    "name": "Rapid Construction",
+    "category": "research",
+    "prereqs": [],
+    "cost": { "materials": 600, "energy": 400, "researchData": 150 },
+    "time": 400,
+    "effect": { "type": "buildSpeed", "target": "all", "value": 0.2 }
+  },
+  {
+    "id": "quantum_computing",
+    "name": "Quantum Computing",
+    "category": "research",
+    "prereqs": ["rapid_construction", "data_compression"],
+    "cost": { "materials": 1000, "energy": 800, "researchData": 500 },
+    "time": 900,
+    "effect": { "type": "researchSpeed", "target": "all", "value": 0.25 }
+  },
+  {
+    "id": "clan_coordination",
+    "name": "Clan Coordination",
+    "category": "clan",
+    "prereqs": [],
+    "cost": { "materials": 300, "energy": 300, "researchData": 200 },
+    "time": 350,
+    "effect": { "type": "clanPointsMultiplier", "target": "all", "value": 0.15 }
+  },
+  {
+    "id": "diplomatic_relations",
+    "name": "Diplomatic Relations",
+    "category": "clan",
+    "prereqs": ["clan_coordination"],
+    "cost": { "materials": 500, "energy": 600, "researchData": 400 },
+    "time": 700,
+    "effect": { "type": "clanPointsMultiplier", "target": "all", "value": 0.1 }
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "durationMs": 604800000,
+  "pointValues": {
+    "build": 50,
+    "research": 100,
+    "produce": 10
+  },
+  "aiProfiles": {
+    "rusher": { "baseRate": 0.5, "curve": "early" },
+    "grinder": { "baseRate": 0.3, "curve": "steady" },
+    "lateBloomer": { "baseRate": 0.1, "curve": "late" }
+  },
+  "rewards": {
+    "winner": { "currency": 500, "speedups": ["1h_build", "8h_build"] },
+    "participant": { "currency": 100, "speedups": ["1h_research"] }
+  }
+}
