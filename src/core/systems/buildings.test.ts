@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 import { gameState, createInitialState, hydrateState } from '../state/gameState.js'
 import { queueBuilding, cancelBuilding, completeBuilding, getBuildingLevel } from './buildings.js'
-import { calculateCost, getBuildingDef } from './buildingDefinitions.js'
+import { calculateCost, calculateBuildTime, getBuildingDef } from './buildingDefinitions.js'
 import { resourceRates } from '../state/derived.js'
 import { timerManager } from '../time/timerManager.js'
 // definition modules register themselves on import (same as main.ts bootstrap)
@@ -112,5 +112,40 @@ describe('buildings system', () => {
   it('getBuildingLevel reports the slot level', () => {
     expect(getBuildingLevel('command_center')).toBe(1)
     expect(getBuildingLevel('resource_1')).toBe(0)
+  })
+
+  it('calculateCost scales levels as floor(base × costMultiplier^level)', () => {
+    const def = getBuildingDef('resource_production')!
+
+    const level0 = calculateCost(0, def)
+    expect(level0.materials).toBe(def.baseCost.materials)
+    expect(level0.energy).toBe(def.baseCost.energy)
+    expect(level0.researchData).toBe(def.baseCost.researchData)
+
+    const level1 = calculateCost(1, def)
+    expect(level1.materials).toBe(Math.floor(def.baseCost.materials * def.costMultiplier))
+    expect(level1.energy).toBe(Math.floor(def.baseCost.energy * def.costMultiplier))
+    expect(level1.researchData).toBe(Math.floor(def.baseCost.researchData * def.costMultiplier))
+    expect(level1.materials).toBeGreaterThan(level0.materials)
+
+    const level2 = calculateCost(2, def)
+    expect(level2.materials).toBe(
+      Math.floor(def.baseCost.materials * Math.pow(def.costMultiplier, 2))
+    )
+    expect(level2.materials).toBeGreaterThan(level1.materials)
+  })
+
+  it('calculateBuildTime scales levels as floor(base × timeMultiplier^level)', () => {
+    const def = getBuildingDef('resource_production')!
+
+    expect(calculateBuildTime(0, def)).toBe(def.baseBuildTime)
+
+    const level1 = calculateBuildTime(1, def)
+    expect(level1).toBe(Math.floor(def.baseBuildTime * def.timeMultiplier))
+    expect(level1).toBeGreaterThan(calculateBuildTime(0, def))
+
+    const level2 = calculateBuildTime(2, def)
+    expect(level2).toBe(Math.floor(def.baseBuildTime * Math.pow(def.timeMultiplier, 2)))
+    expect(level2).toBeGreaterThan(level1)
   })
 })
