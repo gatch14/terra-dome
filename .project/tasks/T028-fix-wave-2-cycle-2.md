@@ -46,7 +46,8 @@ The source task contracts are unchanged; read them and .project/intent/INTENT.md
 ```bash
 set -e
 (
-test -f src/core/systems/clanEvent.ts && test -f src/core/systems/clanEventDefinitions.ts && test -f src/data/clanEvent.json
+pnpm tsc --noEmit
+pnpm vitest run
 )
 ```
 
@@ -61,3 +62,4 @@ Criterion: Unit tests for: event start, point sources, AI profiles, event end, r
 ## Log
 
 - 2026-10-10 — created by dispatch_driver.py fix-tasks from wave 2 cycle 2
+- 2026-10-10 — plan defect repair (wave 2 gate): Verify strengthened from file-existence (`test -f clanEvent.ts && test -f clanEventDefinitions.ts && test -f clanEvent.json`) to `pnpm tsc --noEmit && pnpm vitest run` (the AC claims behavioral test coverage; a `test -f` check cannot run the tests).

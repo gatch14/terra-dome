@@ -46,7 +46,8 @@ The source task contracts are unchanged; read them and .project/intent/INTENT.md
 ```bash
 set -e
 (
-test -f src/core/systems/buildings.ts && test -f src/core/systems/buildingDefinitions.ts && test -f src/data/buildings.json
+pnpm tsc --noEmit
+pnpm vitest run
 )
 ```
 
@@ -61,3 +62,4 @@ Criterion: Unit tests for: queue, complete, cancel, cost scaling, time scaling, 
 ## Log
 
 - 2026-10-10 — created by dispatch_driver.py fix-tasks from wave 2 cycle 2
+- 2026-10-10 — plan defect repair (wave 2 gate): Verify strengthened from file-existence (`test -f buildings.ts && test -f buildingDefinitions.ts && test -f buildings.json`) to `pnpm tsc --noEmit && pnpm vitest run` (the AC claims behavioral coverage of existing test files; a `test -f` check cannot run them).

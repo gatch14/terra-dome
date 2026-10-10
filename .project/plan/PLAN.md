@@ -196,7 +196,7 @@ Review depth: full
 | Task | Title | Deps | Files |
 |------|-------|------|-------|
 | T026 | Fix wave 2 cycle 2 review findings in T006 | T006 | src/core/systems/buildingDefinitions.ts, src/core/systems/buildings.test.ts, src/core/systems/buildings.ts, src/data/buildings.json |
-| T027 | Fix wave 2 cycle 2 review findings in T008 | T008 | src/core/systems/research.test.ts, src/core/systems/research.ts, src/core/systems/researchDefinitions.ts, src/data/research.json |
+| T027 | Fix wave 2 cycle 2 review findings in T008 | T008 | src/core/systems/research.test.ts, src/core/systems/research.ts, src/core/systems/researchDefinitions.ts, src/data/research.json, src/core/state/derived.ts, src/core/systems/buildingDefinitions.ts, src/core/systems/clanEvent.ts |
 | T028 | Fix wave 2 cycle 2 review findings in T009 | T009 | src/core/systems/clanEvent.test.ts, src/core/systems/clanEvent.ts, src/core/systems/clanEventDefinitions.ts, src/data/clanEvent.json |
 
 ## Intent coverage

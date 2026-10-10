@@ -13,6 +13,9 @@ files:
   - src/core/systems/research.ts
   - src/core/systems/researchDefinitions.ts
   - src/data/research.json
+  - src/core/state/derived.ts
+  - src/core/systems/buildingDefinitions.ts
+  - src/core/systems/clanEvent.ts
 ---
 
 # T027 — Fix wave 2 cycle 2 review findings in T008
@@ -46,7 +49,8 @@ The source task contracts are unchanged; read them and .project/intent/INTENT.md
 ```bash
 set -e
 (
-test -f src/core/systems/research.ts && test -f src/core/systems/researchDefinitions.ts && test -f src/data/research.json
+pnpm tsc --noEmit
+pnpm vitest run
 )
 ```
 
@@ -61,3 +65,5 @@ Criterion: Bonuses correctly modify resourceRates, buildSpeed, researchSpeed, cl
 ## Log
 
 - 2026-10-10 — created by dispatch_driver.py fix-tasks from wave 2 cycle 2
+- 2026-10-10 — plan defect repair (wave 2 gate): files extended with src/core/state/derived.ts, src/core/systems/buildingDefinitions.ts and src/core/systems/clanEvent.ts — the batch inherited only T008's files, but the finding's fix line names derived multipliers (derived.ts), calculateBuildTime consumption (buildingDefinitions.ts) and player point awards (clanEvent.ts); PLAN wave 12 Files column updated to match.
+- 2026-10-10 — plan defect repair (wave 2 gate): Verify strengthened from file-existence (`test -f research.ts && test -f researchDefinitions.ts && test -f research.json`) to `pnpm tsc --noEmit && pnpm vitest run` (the AC claims observable bonus behavior; a `test -f` check cannot validate it).
