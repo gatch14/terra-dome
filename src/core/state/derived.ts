@@ -35,6 +35,37 @@ export const resourceRates = computed<ResourceRate>(() => {
   return rates
 })
 
+/**
+ * Completed-research bonuses of the non-resourceRate effect types. Each
+ * completed node multiplies the factor by (1 + value); a fresh state with no
+ * completed research yields exactly 1.
+ */
+function completedResearchMultiplier(
+  type: 'buildSpeed' | 'researchSpeed' | 'clanPointsMultiplier'
+): number {
+  let multiplier = 1
+  for (const research of Object.values(gameState.value.research)) {
+    if (research.state === 'completed') {
+      const def = definitions.research[research.id]
+      if (def?.effect.type === type) {
+        multiplier *= 1 + def.effect.value
+      }
+    }
+  }
+  return multiplier
+}
+
+/** +X% build speed from completed research (consumed by calculateBuildTime). */
+export const buildSpeedMultiplier = computed(() => completedResearchMultiplier('buildSpeed'))
+
+/** +X% research speed from completed research (consumed by startResearch's timer). */
+export const researchSpeedMultiplier = computed(() => completedResearchMultiplier('researchSpeed'))
+
+/** +X% player clan points from completed research (consumed by addPlayerPoints). */
+export const clanPointsMultiplier = computed(() =>
+  completedResearchMultiplier('clanPointsMultiplier')
+)
+
 /** Storage caps: base storage from resources.json plus building storage bonuses. */
 export const storageLimits = computed<ResourceAmount>(() => {
   const state = gameState.value

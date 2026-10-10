@@ -1,6 +1,7 @@
 import { CLAN_EVENT_CONFIG, type AIProfileCurve } from './clanEventDefinitions.js'
 import { timerManager } from '../time/timerManager.js'
 import { gameState, touch } from '../state/gameState.js'
+import { clanPointsMultiplier } from '../state/derived.js'
 import type { ClanEventResults, PointLogEntry } from '../state/types.js'
 
 const LOG_COALESCE_MS = 60_000
@@ -50,8 +51,11 @@ export function addPlayerPoints(source: string, amount: number): void {
   if (amount === 0) return
   const state = gameState.value
   const now = Date.now()
-  state.clanEvent.playerPoints = Math.max(0, state.clanEvent.playerPoints + amount)
-  pushLog({ timestamp: now, clan: 'player', source, amount })
+  // Completed clanPointsMultiplier research boosts positive awards; deductions
+  // are never boosted and floor() keeps the total an integer.
+  const awarded = amount > 0 ? Math.floor(amount * clanPointsMultiplier.value) : amount
+  state.clanEvent.playerPoints = Math.max(0, state.clanEvent.playerPoints + awarded)
+  pushLog({ timestamp: now, clan: 'player', source, amount: awarded })
   touch()
 }
 

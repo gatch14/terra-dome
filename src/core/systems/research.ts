@@ -1,8 +1,7 @@
-import type { ResearchDef } from '../state/types.js'
 import { RESEARCH_DEFINITIONS, getResearchDef } from './researchDefinitions.js'
 import { timerManager } from '../time/timerManager.js'
 import { gameState, touch } from '../state/gameState.js'
-import { storageLimits } from '../state/derived.js'
+import { storageLimits, researchSpeedMultiplier } from '../state/derived.js'
 import { canAfford, spend } from './resources.js'
 import { addPlayerPoints } from './clanEvent.js'
 import { CLAN_EVENT_CONFIG } from './clanEventDefinitions.js'
@@ -30,7 +29,9 @@ export function startResearch(nodeId: string): boolean {
 
   spend(def.cost)
 
-  const endTime = Date.now() + def.time * 1000
+  // Completed researchSpeed research shortens the timer (derived multiplier).
+  const durationMs = Math.floor((def.time * 1000) / researchSpeedMultiplier.value)
+  const endTime = Date.now() + durationMs
   node.state = 'researching'
   node.queuePosition = state.researchQueue.length
   node.endTime = endTime
@@ -72,16 +73,14 @@ export function completeResearch(nodeId: string): void {
   const node = state.research[nodeId]
   if (!node || node.state !== 'researching') return
 
-  const def = getResearchDef(nodeId)
-  if (!def) return
-
   node.state = 'completed'
   node.queuePosition = null
   node.endTime = null
   state.researchQueue = state.researchQueue.filter(id => id !== nodeId)
 
-  applyResearchEffect(def)
-
+  // Effects apply through derived signals (resourceRates plus the
+  // buildSpeedMultiplier / researchSpeedMultiplier / clanPointsMultiplier
+  // computeds), so completion only has to flip the node's state.
   for (const availableId of getAvailableResearch()) {
     const availableNode = state.research[availableId]
     if (availableNode && availableNode.state === 'locked') {
@@ -89,11 +88,6 @@ export function completeResearch(nodeId: string): void {
     }
   }
   touch()
-}
-
-function applyResearchEffect(_def: ResearchDef): void {
-  // Effects are applied through derived signals (resourceRates)
-  // Clan points multiplier would be applied in clanEvent system
 }
 
 export function getNodeState(nodeId: string): 'locked' | 'available' | 'researching' | 'completed' {

@@ -1,5 +1,6 @@
 import type { BuildingDef, SlotDef } from '../state/types.js'
 import { registerDefinitions } from '../state/gameState.js'
+import { buildSpeedMultiplier } from '../state/derived.js'
 import buildingsJson from '../../data/buildings.json'
 
 /**
@@ -58,7 +59,10 @@ export function calculateCost(level: number, def: BuildingDef) {
 }
 
 export function calculateBuildTime(level: number, def: BuildingDef): number {
-  return Math.floor(def.baseBuildTime * Math.pow(def.timeMultiplier, level))
+  // Completed buildSpeed research shortens every construction (derived multiplier).
+  return Math.floor(
+    (def.baseBuildTime * Math.pow(def.timeMultiplier, level)) / buildSpeedMultiplier.value
+  )
 }
 
 export function calculateProduction(level: number, def: BuildingDef) {
