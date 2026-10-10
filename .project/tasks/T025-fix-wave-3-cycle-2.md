@@ -47,7 +47,8 @@ The source task contracts are unchanged; read them and .project/intent/INTENT.md
 ```bash
 set -e
 (
-test -f src/ui/screens/ResearchScreen.tsx && test -f src/ui/components/TechTree.tsx && test -f src/ui/components/ResearchNode.tsx && test -f src/ui/components/ResearchQueue.tsx && test -f src/ui/components/ResearchCategory.tsx
+pnpm tsc --noEmit
+pnpm vitest run
 )
 ```
 
@@ -63,3 +64,4 @@ Criterion: Click available node → confirmation → research starts, node turns
 ## Log
 
 - 2026-10-10 — created by dispatch_driver.py fix-tasks from wave 3 cycle 2
+- 2026-10-10 — plan defect repair (wave 3 gate): Verify strengthened from file-existence to `pnpm tsc --noEmit` plus the full `pnpm vitest run` (the fix claim is behavioral — the AC is a confirmation step; both findings name these exact commands).
