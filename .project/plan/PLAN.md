@@ -170,6 +170,15 @@ Review depth: deep
 | T022 | Fix wave 4 cycle 1 review findings in T012 | T012 | src/ui/components/ClanLeaderboard.tsx, src/ui/components/EventResultsModal.tsx, src/ui/components/EventTimer.tsx, src/ui/components/PointLog.tsx, src/ui/screens/ClanEventScreen.tsx |
 | T023 | Fix wave 4 cycle 1 review findings in T013 | T013 | src/core/systems/shop.ts, src/core/systems/shopDefinitions.ts, src/data/shop.json, src/ui/components/CurrencyDisplay.tsx, src/ui/components/Inventory.tsx, src/ui/components/ShopItem.tsx, src/ui/screens/ShopScreen.tsx |
 
+## Wave 10 — fix wave 1 cycle 2 review findings
+
+Goal: Repair the blocking findings of the wave 1 cycle 2 review without changing source task contracts.
+Review depth: full
+
+| Task | Title | Deps | Files |
+|------|-------|------|-------|
+| T024 | Fix wave 1 cycle 2 review findings in T005 | T005 | src/core/persistence/migration.ts, src/core/persistence/persistence.ts, src/core/persistence/schema.ts |
+
 ## Intent coverage
 
 | Criterion | Task | Acceptance |
