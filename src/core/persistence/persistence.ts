@@ -1,4 +1,5 @@
 import { set, get, del } from 'idb-keyval'
+import { effect } from '@preact/signals'
 import { SaveFileSchema, CURRENT_SAVE_VERSION } from './schema.js'
 import { migrateSave } from './migration.js'
 import type { GameState, SaveFile } from '../state/types.js'
@@ -7,7 +8,18 @@ import { gameState } from '../state/gameState.js'
 const SAVE_KEY = 'terra-dome-save'
 const BACKUP_KEY = 'terra-dome-save-backup'
 
-let saveIntervalId: ReturnType<typeof setInterval> | null = null
+/** Window event: a save failed because storage is full (the shell shows a toast and offers an export). */
+export const SAVE_QUOTA_EVENT = 'persistence:quota-exceeded'
+
+let autoSaveDispose: (() => void) | null = null
+let autoSaveTimeout: ReturnType<typeof setTimeout> | null = null
+let lastSeenSavedAt = 0
+let storageChannel: BroadcastChannel | null = null
+
+function isQuotaError(error: unknown): boolean {
+  return error instanceof DOMException &&
+    (error.name === 'QuotaExceededError' || error.code === 22)
+}
 
 export async function saveGame(state?: GameState): Promise<void> {
   const stateToSave = state || gameState.value
@@ -20,7 +32,12 @@ export async function saveGame(state?: GameState): Promise<void> {
   try {
     await set(SAVE_KEY, saveFile)
     await set(BACKUP_KEY, saveFile)
+    lastSeenSavedAt = saveFile.savedAt
+    storageChannel?.postMessage({ savedAt: saveFile.savedAt })
   } catch (error) {
+    if (isQuotaError(error)) {
+      window.dispatchEvent(new CustomEvent(SAVE_QUOTA_EVENT))
+    }
     console.error('Failed to save game:', error)
     throw error
   }
@@ -39,6 +56,7 @@ export async function loadGame(): Promise<GameState | null> {
       return await loadBackup()
     }
     
+    lastSeenSavedAt = parsed.data.savedAt
     return parsed.data.data
   } catch (error) {
     console.error('Failed to load game:', error)
@@ -54,6 +72,7 @@ async function loadBackup(): Promise<GameState | null> {
     const parsed = SaveFileSchema.safeParse(backup)
     if (!parsed.success) return null
     
+    lastSeenSavedAt = parsed.data.savedAt
     return parsed.data.data
   } catch {
     return null
@@ -88,13 +107,29 @@ export async function clearSave(): Promise<void> {
   await del(BACKUP_KEY)
 }
 
-export function setupAutoSave(intervalMs: number = 10_000): void {
-  if (saveIntervalId !== null) return
-  saveIntervalId = setInterval(() => {
-    saveGame().catch(console.error)
-  }, intervalMs)
+export function setupAutoSave(debounceMs: number = 500): void {
+  if (autoSaveDispose !== null) return
+
+  const schedule = () => {
+    if (autoSaveTimeout !== null) clearTimeout(autoSaveTimeout)
+    autoSaveTimeout = setTimeout(() => {
+      autoSaveTimeout = null
+      saveGame().catch(console.error)
+    }, debounceMs)
+  }
+
+  // effect() re-runs whenever gameState is reassigned (touch()), so auto-save
+  // triggers on state change with a debounce instead of a fixed interval.
+  autoSaveDispose = effect(() => {
+    void gameState.value
+    schedule()
+  })
 
   const flush = () => {
+    if (autoSaveTimeout !== null) {
+      clearTimeout(autoSaveTimeout)
+      autoSaveTimeout = null
+    }
     saveGame().catch(console.error)
   }
   window.addEventListener('pagehide', flush)
@@ -104,22 +139,42 @@ export function setupAutoSave(intervalMs: number = 10_000): void {
 }
 
 export function teardownAutoSave(): void {
-  if (saveIntervalId !== null) {
-    clearInterval(saveIntervalId)
-    saveIntervalId = null
+  if (autoSaveDispose !== null) {
+    autoSaveDispose()
+    autoSaveDispose = null
+  }
+  if (autoSaveTimeout !== null) {
+    clearTimeout(autoSaveTimeout)
+    autoSaveTimeout = null
   }
 }
 
 export function setupStorageSync(): void {
+  // IndexedDB writes never fire window 'storage' events (those are for localStorage),
+  // so cross-tab sync goes through BroadcastChannel: a save in one tab reloads the others.
   window.addEventListener('storage', (event) => {
     if (event.key === SAVE_KEY && event.newValue) {
-      const newSave = JSON.parse(event.newValue)
-      const currentSave = gameState.value
-      if (newSave.savedAt > currentSave.lastSave) {
-        window.location.reload()
+      try {
+        const newSave = JSON.parse(event.newValue)
+        if (newSave.savedAt > lastSeenSavedAt) {
+          lastSeenSavedAt = newSave.savedAt
+          window.location.reload()
+        }
+      } catch {
+        // Malformed payload: ignore, the current tab keeps its state.
       }
     }
   })
+  if (storageChannel === null && 'BroadcastChannel' in window) {
+    storageChannel = new BroadcastChannel('terra-dome-save')
+    storageChannel.onmessage = (event: MessageEvent) => {
+      const data = event.data as { savedAt?: number } | null
+      if (data && typeof data.savedAt === 'number' && data.savedAt > lastSeenSavedAt) {
+        lastSeenSavedAt = data.savedAt
+        window.location.reload()
+      }
+    }
+  }
 }
 
 export function isStorageAvailable(): boolean {

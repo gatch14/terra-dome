@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 import { gameState, createInitialState, hydrateState } from '../state/gameState.js'
-import { storageLimits } from '../state/derived.js'
+import { storageLimits, resourceRates } from '../state/derived.js'
 import { applyOfflineProgress, MAX_OFFLINE_MS, AI_POINTS_PER_SEC } from './offlineCatchup.js'
 import { timerManager } from './timerManager.js'
 // definitions register themselves on import
@@ -119,5 +119,36 @@ describe('applyOfflineProgress', () => {
     expect(state.clanEvent.lastResults?.playerPoints).toBe(120)
     expect(state.clanEvent.eventEndTime).toBeGreaterThan(now)
     expect(state.clanEvent.cycle).toBe(2)
+  })
+
+  it('zero elapsed (lastSave === now) yields no progress', () => {
+    const now = Date.now()
+    const state = gameState.value
+    state.lastSave = now
+    const before = { ...state.resources }
+    const aiBefore = state.clanEvent.aiPoints
+
+    applyOfflineProgress(state, now)
+
+    expect(state.resources).toEqual(before)
+    expect(state.clanEvent.aiPoints).toBe(aiBefore)
+    expect(state.lastSave).toBe(now)
+  })
+
+  it('normal absence accrues resources at rate x elapsed, under the caps', () => {
+    const now = Date.now()
+    const state = gameState.value
+    const elapsedMs = 5 * 60 * 1000 // 5 min — a normal absence, well under the 24h cap
+    state.lastSave = now - elapsedMs
+    const rates = resourceRates.value
+    const before = { ...state.resources }
+
+    applyOfflineProgress(state, now)
+
+    const elapsedSec = elapsedMs / 1000
+    expect(state.resources.materials).toBeCloseTo(before.materials + rates.materials * elapsedSec, 5)
+    expect(state.resources.energy).toBeCloseTo(before.energy + rates.energy * elapsedSec, 5)
+    expect(state.resources.researchData).toBeCloseTo(before.researchData + rates.researchData * elapsedSec, 5)
+    expect(state.lastSave).toBe(now)
   })
 })

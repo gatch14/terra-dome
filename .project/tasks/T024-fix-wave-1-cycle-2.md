@@ -3,9 +3,9 @@ id: T024
 title: Fix wave 1 cycle 2 review findings in T005
 wave: 10
 deps: [T005]
-status: pending
-agent: null
-base: null
+status: done
+agent: gsd-coder
+base: 203aa6bffaa8a758ed050621aead52c3e8109c4f
 worktree: null
 task_branch: null
 files:
@@ -73,3 +73,25 @@ Criterion: Auto-save triggers on state change (debounced 500ms)
 - 2026-10-10 — created by dispatch_driver.py fix-tasks from wave 1 cycle 2
 - 2026-10-10 — plan defect repair (wave 1 gate): fix-tasks reported the t004_files batch as carried by T015, but T015's landing ca43fe7 changed only its brief and the named test cases are still absent from offlineCatchup.test.ts; scope, files and the verbatim t004 finding extended to this task so the repair actually lands (AC 2, Review findings).
 - 2026-10-10 — plan defect repair (wave 1 gate): Verify strengthened from file-existence (`test -f schema.ts && test -f migration.ts`) to `pnpm tsc --noEmit && pnpm vitest run` (fix claims are behavioral). AC6 also requires a UI binding for the storage banner and quota toast, which persistence.ts alone cannot render; the App shell binding lands with this fix inside the listed files plus src/ui/App.tsx (see files).
+- 2026-10-10 — orchestrator Verify (sidecar gsd-path-verify/task-t024-verify): pass, exit 0; output tail:
+  ```
+  + typescript 5.9.3
+  + vite 5.4.21
+  + vitest 2.1.9
+  
+  Done in 1.7s using pnpm v11.4.0
+  
+  [1m[7m[36m RUN [39m[27m[22m [36mv2.1.9 [39m[90mC:/Users/gatch/.gsd-path/projects/6766097597d76e29/1d504e52cfc1b1c5/verify/task-t024-verify[39m
+  
+   [32m✓[39m src/core/time/timerManager.test.ts [2m([22m[2m5 tests[22m[2m)[22m[90m 6[2mms[22m[39m
+   [32m✓[39m src/core/systems/clanEvent.test.ts [2m([22m[2m10 tests[22m[2m)[22m[90m 9[2mms[22m[39m
+   [32m✓[39m src/core/systems/research.test.ts [2m([22m[2m8 tests[22m[2m)[22m[90m 7[2mms[22m[39m
+   [32m✓[39m src/core/systems/buildings.test.ts [2m([22m[2m9 tests[22m[2m)[22m[90m 7[2mms[22m[39m
+   [32m✓[39m src/core/systems/resources.test.ts [2m([22m[2m9 tests[22m[2m)[22m[90m 6[2mms[22m[39m
+   [32m✓[39m src/core/time/offlineCatchup.test.ts [2m([22m[2m8 tests[22m[2m)[22m[90m 4[2mms[22m[39m
+  
+  [2m Test Files [22m [1m[32m6 passed[39m[22m[90m (6)[39m
+  [2m      Tests [22m [1m[32m49 passed[39m[22m[90m (49)[39m
+  [2m   Start at [22m 12:23:45
+  [2m   Duration [22m 1.51s[2m (transform 357ms, setup 0ms, collect 778ms, tests 39ms, environment 5.34s, prepare 858ms)[22m
+  ```
