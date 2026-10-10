@@ -11,11 +11,11 @@ export function ResearchScreen() {
   const available = availableResearch.value
   
   const handleStartResearch = (nodeId: string) => {
+    const def = RESEARCH_DEFINITIONS[nodeId]
+    if (!window.confirm(`Start research ${def?.name}?`)) return
     if (startResearch(nodeId)) {
-      const def = RESEARCH_DEFINITIONS[nodeId]
       showToast(`Research started: ${def?.name}`, 'success')
     } else {
-      const def = RESEARCH_DEFINITIONS[nodeId]
       showToast(`Cannot start ${def?.name} — check cost or prerequisites`, 'warning')
     }
   }
