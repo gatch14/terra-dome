@@ -3,9 +3,9 @@ id: T028
 title: Fix wave 2 cycle 2 review findings in T009
 wave: 12
 deps: [T009]
-status: pending
-agent: null
-base: null
+status: done
+agent: gsd-coder
+base: bff4852d5f348e56fbcf267a9b0b1ff991a2c96e
 worktree: null
 task_branch: null
 files:
@@ -63,3 +63,25 @@ Criterion: Unit tests for: event start, point sources, AI profiles, event end, r
 
 - 2026-10-10 — created by dispatch_driver.py fix-tasks from wave 2 cycle 2
 - 2026-10-10 — plan defect repair (wave 2 gate): Verify strengthened from file-existence (`test -f clanEvent.ts && test -f clanEventDefinitions.ts && test -f clanEvent.json`) to `pnpm tsc --noEmit && pnpm vitest run` (the AC claims behavioral test coverage; a `test -f` check cannot run the tests).
+- 2026-10-10 — orchestrator Verify (sidecar gsd-path-verify/task-t028-verify): pass, exit 0; output tail:
+  ```
+  + typescript 5.9.3
+  + vite 5.4.21
+  + vitest 2.1.9
+  
+  Done in 908ms using pnpm v11.4.0
+  
+  [1m[7m[36m RUN [39m[27m[22m [36mv2.1.9 [39m[90mC:/Users/gatch/.gsd-path/projects/6766097597d76e29/1d504e52cfc1b1c5/verify/task-t028-verify[39m
+  
+   [32m✓[39m src/core/time/timerManager.test.ts [2m([22m[2m5 tests[22m[2m)[22m[90m 6[2mms[22m[39m
+   [32m✓[39m src/core/systems/clanEvent.test.ts [2m([22m[2m11 tests[22m[2m)[22m[90m 10[2mms[22m[39m
+   [32m✓[39m src/core/systems/buildings.test.ts [2m([22m[2m11 tests[22m[2m)[22m[90m 8[2mms[22m[39m
+   [32m✓[39m src/core/systems/resources.test.ts [2m([22m[2m9 tests[22m[2m)[22m[90m 6[2mms[22m[39m
+   [32m✓[39m src/core/systems/research.test.ts [2m([22m[2m12 tests[22m[2m)[22m[90m 8[2mms[22m[39m
+   [32m✓[39m src/core/time/offlineCatchup.test.ts [2m([22m[2m8 tests[22m[2m)[22m[90m 5[2mms[22m[39m
+  
+  [2m Test Files [22m [1m[32m6 passed[39m[22m[90m (6)[39m
+  [2m      Tests [22m [1m[32m56 passed[39m[22m[90m (56)[39m
+  [2m   Start at [22m 13:02:09
+  [2m   Duration [22m 1.15s[2m (transform 356ms, setup 0ms, collect 729ms, tests 42ms, environment 3.47s, prepare 818ms)[22m
+  ```
