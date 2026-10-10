@@ -31,13 +31,13 @@ Contract violations (blocking): none
 
 - ✅ Research tab shows 3 category columns with 6-8 nodes total — TechTree per-category columns (TechTree.tsx:15-30); 7 nodes in research.json.
 - ✅ Nodes colored correctly by state (locked/available/researching/completed) — STATE_COLORS (ResearchNode.tsx:12-17) + getNodeState (research.ts:93-95).
-- ✅ Hover available node → tooltip shows cost, time, effect — tooltip block (ResearchNode.tsx:34-35, :50-59) with describeEffect (:63); CSS hover only (TechTree.tsx:52-55).
+- ✅ Hover available node → tooltip shows cost, time, effect — the tooltip string carries cost, `formatTimeShort(def.time)` and `describeEffect(def)` (ResearchNode.tsx:33-34), attached as the native `title` attribute (:42); describeEffect (:63) formats all four effect types.
 - ✅ Click available node → confirmation → research starts, node turns blue, queue shows item — the cycle 2 adversarial finding (first-click start, no confirmation) is closed by T025 (commit 6bb42ab): ResearchScreen.handleStartResearch returns early unless `window.confirm` accepts (ResearchScreen.tsx:15) — the mutation (`startResearch`) sits behind the guard at :16; success toast :17; the researching node turns blue via STATE_COLORS :13-16 and the queue shows the item (ResearchQueue.tsx:25-44).
 - ✅ Research queue shows progress bar, remaining time — ResearchQueue rows with `secondsUntil` (ResearchQueue.tsx:25-44, :30).
 - ✅ Timer completes → node turns gold, bonus applied — completeResearch (research.ts:71-91) via the timer; gold = STATE_COLORS :15; bonus flows through derived.ts:7-36,:43-67; research.test.ts:70,:99-175 (reviewer re-run 12/12).
 - ✅ Cannot start locked/unaffordable nodes — disabled or tooltip — state gate (research.ts:27) and canAfford gate (:28-31); refusal toast (ResearchScreen.tsx:18-19); tests :55,:61.
 - ✅ Reload → completed research persist, queue resumes — schema coverage + main.ts:21-33 + resumeTimers re-registration (main.ts:33-37).
-- ✅ Keyboard: Tab to nodes, Enter activates, Escape closes tooltip — `role="button"` + tabIndex (ResearchNode.tsx:43-47), Enter/Space handler (:26-31 wired at :41); Escape cancels the native confirm (browser-level), and the CSS hover tooltip cannot linger (TechTree.tsx:52-55) — see Warnings.
+- ✅ Keyboard: Tab to nodes, Enter activates, Escape closes tooltip — `role="button"` + tabIndex (ResearchNode.tsx:43-47), Enter/Space handler (:26-31 wired at :41); the tooltip is the native `title` attribute (ResearchNode.tsx:34,:42) with no program-controlled open state, so nothing lingers after focus moves, and Escape cancels the native confirm (browser-level) — see Warnings.
 
 Attack attempts re-verified this cycle:
 - Misclick the wrong research → confirmation dialog now intercepts (ResearchScreen.tsx:15); declining leaves state untouched (no mutation before :16).
@@ -46,7 +46,7 @@ Attack attempts re-verified this cycle:
 - Cancel-then-refund exploit → cancelResearch refunds exactly `def.cost` clamped at storage caps and unregisters the timer (research.ts:47-69; test :85, passed).
 
 Warnings (non-blocking):
-- AC9's literal "Escape closes tooltip" has no persistent tooltip to close (CSS hover only); the confirm dialog cancels with Escape natively — documented, not hidden.
+- AC9's literal "Escape closes tooltip" has no program-controlled tooltip to close (the native `title` attribute, ResearchNode.tsx:34,:42, auto-dismisses on pointer/focus change); the confirm dialog cancels with Escape natively — documented, not hidden.
 
 Contract violations (blocking): none
 

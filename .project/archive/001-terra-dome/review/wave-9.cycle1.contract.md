@@ -17,11 +17,12 @@ Contract violations (blocking): none
 
 ## T023 — Fix wave 4 cycle 1 review findings in T013: pass
 
-- ✅ Click buy → confirmation modal → deducts currency — ShopScreen.handleBuy confirms before mutating: `window.confirm('Buy <name> for 💎 <price>?')` (ShopScreen.tsx:15) gates the `buyItem` call (:16); buyItem checks currency then deducts and inventories (shop.ts:9-24). shop.test.ts:12-33 (reviewer re-run this cycle, passed) covers the deduct and the insufficient-currency no-op. The wave 4 cycle 1 finding that spawned this task is refuted: git shows ShopScreen.tsx and ShopItem.tsx each have a single commit (dd94b2f, the T013 landing) and the confirmation existed from the start.
+- ✅ Click buy → confirmation modal → deducts currency — ShopScreen.handleBuy confirms before mutating: `window.confirm('Buy <name> for 💎 <price>?')` (ShopScreen.tsx:15) gates the `buyItem` call (:16); buyItem checks currency then deducts and inventories (shop.ts:9-24), returning false pre-mutation when unaffordable (:14) so the insufficient-currency path deducts nothing (ShopScreen.tsx:18-20 toast). Evidence is code inspection plus the suite (56/56) — the suite ships no shop-specific tests; see Warnings. The wave 4 cycle 1 finding that spawned this task is refuted: git shows ShopScreen.tsx and ShopItem.tsx each have a single commit (dd94b2f, the T013 landing) and the confirmation existed from the start.
 
 Warnings (non-blocking):
 - T023's own landing 49873a0e changed only its task brief; no repair was needed. Recorded for provenance.
 - The confirmation is a native `window.confirm` dialog rather than an in-app modal; it satisfies the criterion (modal → confirm/cancel) and blocks until answered.
+- The shop system has no dedicated test file; purchase behavior is covered by code citations and the full suite (tsc 0, 56/56, build 0), not by unit tests. Recorded, not hidden.
 
 Contract violations (blocking): none
 

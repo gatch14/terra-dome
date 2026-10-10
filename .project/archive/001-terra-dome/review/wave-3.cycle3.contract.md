@@ -31,13 +31,13 @@ Contract violations (blocking): none
 
 - ✅ Research tab shows 3 category columns with 6-8 nodes total — TechTree groups by category (TechTree.tsx:15-30, `ResearchCategory` per column); research.json defines exactly 7 nodes across production/research/clan; categories validated at startup (researchDefinitions.ts:12-14).
 - ✅ Nodes colored correctly by state (locked/available/researching/completed) — STATE_COLORS maps all four states (ResearchNode.tsx:12-17); getNodeState derives the state from the signal state (research.ts:93-95).
-- ✅ Hover available node → tooltip shows cost, time, effect — tooltip block renders cost, `def.time`s, and `describeEffect(def)` (ResearchNode.tsx:34-35, :50-59); describeEffect (ResearchNode.tsx:63) formats all four effect types; CSS-only hover tooltip (TechTree.tsx:52-55).
+- ✅ Hover available node → tooltip shows cost, time, effect — the tooltip string carries cost, `formatTimeShort(def.time)` and `describeEffect(def)` (ResearchNode.tsx:33-34), attached as the native `title` attribute (:42); describeEffect (ResearchNode.tsx:63) formats all four effect types.
 - ✅ Click available node → confirmation → research starts, node turns blue, queue shows item — ResearchScreen.handleStartResearch confirms before mutating: `window.confirm('Start research <name>?')` (ResearchScreen.tsx:15) gates the `startResearch` call (:16); success toast :17, refusal toast :18-19. The researching state colors the node blue (STATE_COLORS :13-16) and the queue lists the item (ResearchQueue.tsx:25-44). This cycle 2 blocking finding was fixed by T025 (commit 6bb42ab).
 - ✅ Research queue shows progress bar, remaining time — ResearchQueue rows render a progress bar and countdown (ResearchQueue.tsx:25-44, `secondsUntil` :30).
 - ✅ Timer completes → node turns gold, bonus applied — the `research-<nodeId>` timer fires completeResearch (research.ts:71-91); the node state becomes completed (gold via STATE_COLORS :15), and the effect reaches the derived multipliers (derived.ts:7-36, :43-67) — research.test.ts:70 and :99-175, reviewer re-run this cycle 12/12.
 - ✅ Cannot start locked/unaffordable nodes — disabled or tooltip — state gate (research.ts:27) and `canAfford` gate (:28-31) return false; UI shows the refusal toast (ResearchScreen.tsx:18-19); research.test.ts:55 and :61 (reviewer re-run, passed).
 - ✅ Reload → completed research persist, queue resumes — research, researchQueue and state.research are SaveFileSchema fields (schema.ts:14-71); main.ts:21-26 restores and resumeTimers re-registers the research timer (main.ts:33-37).
-- ✅ Keyboard: Tab to nodes, Enter activates, Escape closes tooltip — ResearchNode exposes `role="button"` with tabIndex (ResearchNode.tsx:43-47) and handles Enter/Space (:26-31, wired via onKeyDown :41); tooltips are pure-CSS hover (TechTree.tsx:52-55) that do not persist under keyboard focus — see Warnings.
+- ✅ Keyboard: Tab to nodes, Enter activates, Escape closes tooltip — ResearchNode exposes `role="button"` with tabIndex (ResearchNode.tsx:43-47) and handles Enter/Space (:26-31, wired via onKeyDown :41); the tooltip is the native `title` attribute (ResearchNode.tsx:34, wired at :42), which the browser shows on hover/focus and dismisses on pointer move or focus change — there is no custom tooltip layer that could linger; Escape also cancels the native confirm dialog — see Warnings.
 - ✅ Interface: ResearchScreen exports `renderResearchTab` — exported as `ResearchScreen` (ResearchScreen.tsx:8), mounted by App getScreen (App.tsx:21); same naming drift as T010.
 - ✅ Interface: TechTree — TechTree.tsx:15; ResearchNode — ResearchNode.tsx:19; ResearchCategory — ResearchCategory.tsx:17.
 - ✅ Interface: researchQueue derived signal — derived.ts:103.
@@ -45,7 +45,7 @@ Contract violations (blocking): none
 - ✅ Interface: ResearchDef type — types.ts:44.
 
 Warnings (non-blocking):
-- AC9's "Escape closes tooltip" is satisfied de facto: the tooltip exists only under pointer hover (TechTree.tsx:52-55) and Escape cancels the native confirm dialog; no persistent tooltip remains to dismiss. Documented rather than hidden.
+- AC9's "Escape closes tooltip" is satisfied de facto: the tooltip is the native `title` attribute (ResearchNode.tsx:34,:42) — it has no persistent open state to close (the browser dismisses it when the pointer moves or focus changes), and Escape cancels the native confirm dialog; no program-controlled tooltip remains to dismiss. Documented rather than hidden.
 - T011's Verify (`pnpm vitest run && pnpm build`) recorded pass at landing; reviewer re-ran vitest (56/56) and build (exit 0) this cycle.
 
 Contract violations (blocking): none
